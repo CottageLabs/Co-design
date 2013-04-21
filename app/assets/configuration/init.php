@@ -1,6 +1,6 @@
 <?php
 // Pull in configuration
-require_once(realpath(SYS_ROOTDIR . "../system_configuration.php"));
+require_once(realpath(SYS_ROOTDIR . "./system_configuration.php"));
 
 // Register autoloaders here.
 autoloader::register();
