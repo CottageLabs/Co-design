@@ -98,6 +98,8 @@ abstract class resource extends dbo {
 	}
 	
 	public function countVotes($filter = resource::MEMBERSHIP_ANY) {
+		 //MW THIS CODE CAN CRASH WITH "Table 'codesign_production.idea_user' doesn't exist"
+		/*
 		$sql = "SELECT COUNT(*) AS count FROM " . get_class($this) . "_user WHERE " . get_class($this) . "_id = '{$this->getId()}'";
 		if($filter != resource::MEMBERSHIP_ANY) $sql .= " AND role = " . $filter;
 		
@@ -106,7 +108,8 @@ abstract class resource extends dbo {
 			$votes = $db->single($sql);
 			$this->totalVotes = $votes[0]['count'];
 		}
-		return $this->totalVotes;
+		return $this->totalVotes;*/
+		return "[votes]";
 	}
 	
 	public function getVoters($filter = resource::MEMBERSHIP_ANY){
