@@ -34,3 +34,18 @@ parameters, e.g.
     define('MYSQL_SCHEMA', 'codesign_production');
     ?>
 
+Create an `.htaccess` file in the root application folder. The application
+should be served with Apache. Configure the following rewrite rules, to ensure
+requests are processed by index.php:
+
+    # .htaccess file for co-design
+    RewriteEngine on
+
+    # don't rewrite existing files (e.g. images, javascript)
+    RewriteCond %{REQUEST_FILENAME} !-f
+
+    # don't rewrite existing directories
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # rewrite all other requests to index.php
+    RewriteRule ^(.*)$ /index.php?p=$1
