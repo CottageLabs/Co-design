@@ -21,3 +21,5 @@ app/assets/cache/
 system_configuration.php
 
 .project
+
+deploy.sh.DO-NOT-STORE-IN-GITHUB
