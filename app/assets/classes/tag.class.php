@@ -1,4 +1,4 @@
-<?
+<?php
 class tag {
 	private $id = null;
 	private $name;
@@ -79,3 +79,4 @@ class tag {
 		$this->name = $n;
 	}
 }
+?>

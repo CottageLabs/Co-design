@@ -1,4 +1,4 @@
-<?
+<?php
 class controller_project extends controller {
 	
 	private $m_user;

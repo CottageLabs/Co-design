@@ -1,4 +1,4 @@
-<?
+<?php
 class controller_idea extends controller {
 	
 	private $m_user;
@@ -537,3 +537,4 @@ class controller_idea extends controller {
 		return $this->m_noRender;
 	}
 }
+?>

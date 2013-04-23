@@ -1,4 +1,4 @@
-<?
+<?php
 class project extends resource {
 	private $id = null;
 	private $name;
@@ -335,3 +335,4 @@ class project extends resource {
 		$this->license = $i;
 	}
 }
+?>

@@ -63,8 +63,8 @@ class controller_home extends controller {
 
 		
 		$sidebar->replaceAll(array(
-			#"idea" => $idea[0]->getTitle(),
-			#"idea-id" => $idea[0]->getId()	
+			"idea" => $idea[0]->getTitle(),
+			"idea-id" => $idea[0]->getId()	
 		));
 		
 		if(count($incubated) > 0){
@@ -80,8 +80,8 @@ class controller_home extends controller {
 		}
 		
 		$sidebar->replaceAll(array(
-			#"project" => $project[0]->getName(),
-			#"project-id" => $project[0]->getId()
+			"project" => $project[0]->getName(),
+			"project-id" => $project[0]->getId()
 		));
 
 

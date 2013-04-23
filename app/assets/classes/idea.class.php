@@ -1,4 +1,4 @@
-<?
+<?php
 class idea extends resource {
 	private $id;
 	private $title;
@@ -216,3 +216,4 @@ class idea extends resource {
 		$this->owner_id = $i->getId();
 	}
 }
+?>

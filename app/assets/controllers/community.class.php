@@ -1,4 +1,4 @@
-<?
+<?php
 class controller_community extends controller {
 	
 	private $m_user;
@@ -67,3 +67,4 @@ class controller_community extends controller {
 	
 
 }
+?>

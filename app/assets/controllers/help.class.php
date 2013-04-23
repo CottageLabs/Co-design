@@ -1,4 +1,4 @@
-<?
+<?php
 class controller_help extends controller {
 	
 	private $m_user;
@@ -22,5 +22,5 @@ class controller_help extends controller {
 		$this->pageName = "- Help";
 	}
 	
-
 }
+?>
