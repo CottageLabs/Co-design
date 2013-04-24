@@ -1,64 +1,72 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 	<head>
+		<link type="text/css" rel="stylesheet" href="/design/2013-04-13/html/stylesheet/reset.css"/>
+		<link type="text/css" rel="stylesheet" href="/design/2013-04-13/html/stylesheet/home.css"/>
+
 		<title>Co-design {pagename} {dev}</title>
+		
 		<link href='/presentation/styles/main.css' rel='stylesheet' type='text/css'/>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script> 
-		<script type="text/javascript" src="/presentation/lib/tipsy/javascripts/jquery.tipsy.js"></script>
 		<link href='/presentation/lib/tipsy/stylesheets/tipsy.css' rel='stylesheet' type='text/css'/>
 		<link href='/presentation/lib/bootstrap/css/bootstrap.css' rel='stylesheet' type='text/css'/>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script> 
+		<script type="text/javascript" src="/presentation/lib/tipsy/javascripts/jquery.tipsy.js"></script>
 		<script type="text/javascript" src="/presentation/scripts/main.js"></script> 
 		<script type="text/javascript" src="/presentation/lib/jwplayer/jwplayer.js"></script>
-		<script type="text/javascript" src="/presentation/lib/bootstrap/js/bootstrap.js"></script> 
+		<script type="text/javascript" src="/presentation/lib/bootstrap/js/bootstrap.js"></script>
+<!--		--> 
 		{additional-assets}
 	</head>
 	<body>
-		<!--<a id="skip" href="#content">Skip to Content</a> -->
-		<div id="wrapper">
-			<!--<a href="javascript:(function(){d=document;lf=d.createElement('script');lf.type='text/javascript';lf.id='ToolbarStarter';lf.text='var%20StudyBarNoSandbox=true';d.getElementsByTagName('head')[0].appendChild(lf);jf=d.createElement('script');jf.src='http://access.ecs.soton.ac.uk/ToolBar/channels/toolbar-stable/JTToolbar.user.js';jf.type='text/javascript';jf.id='ToolBar';d.getElementsByTagName('head')[0].appendChild(jf);})();" id="studyBarLaunch" title="Launch ATbar to adjust this webpage, have it read aloud and other functions."><img src="http://access.ecs.soton.ac.uk/ToolBar/content/toolbar/toolbarlauncher.png" alt="ATbar"></a>-->		
-		
-			<div id="logo"><a href="/home"><img src="/presentation/images/realise-logo-final-small.png" alt="Project REALISE logo" /></a></div>
-			<div class="{dev}"></div>
-			<!-- <div id="dfd"><span>Sponsored by</span> <img src="/presentation/images/d4d.png" /></div>-->
-			
-			{userBox}
-			<div id="contentWrapper">
-				
-				<div id="tabs">
-					<a href="/" id="tabHome" class="tab{home-selected}"><img src="/presentation/images/home.png" title="Home Tab" /> Home</a> 
-					<a href="/idea" id="tabIdea" class="tab{idea-selected}"><img src="/presentation/images/lightbulb.png" title="Idea Lab Tab" /> Ideas</a> 
-					<a href="/incubator" id="tabIncubator" class="tab{incubator-selected}"><img src="/presentation/images/plant.png" title="Incubator Tab" /> Short List</a> 
-					<a href="/project" id="tabProjects" class="tab{project-selected}"><img src="/presentation/images/briefcase.png" title="Projects Tab" /> Projects</a> 
-					<!--<a href="/community" id="tabCommunity" class="tab{community-selected}"><img src="/presentation/images/community.png" title="Community Tab" /> resources</a>-->
-					<a href="/resources" id="tabResources" class="tab{resources-selected}"><img src="/presentation/images/resources.png" title="Resources Tab" /> Resources</a>
-				</div>
-				<div id="breadcrumb"><div id="crumbTitle"></div> </div>
-				<div id="content">
-					<div id="contentPane">
-						{viewport}
-					</div>
-					<!--
-					<div id="menu">							
-						{sideContent}						
-					</div> -->
-					<div style="clear:both;"></div>
-				</div>
-			</div>
-			<div id="footer">&copy; 2011 | <a href="/about">About</a> | <a href="/contact">Contact Us</a> | <a href="/legal">Legal</a> | <a href="/accessibility">Accessibility</a> | <a href="/sitemap">Sitemap</a> | <a href="/resources/faq">FAQ</a> | <a href="/help">Help</a> <div id="version">v{version}</div></div>
-			<div style="clear:both; text-align:center"><a href="https://github.com/AccessAtECS/Project-REALISE/issues"><img src="/presentation/images/bug.png" /> Bug Tracker</a></div>
-		</div>
-<script type="text/javascript">
-	var _gaq = _gaq || [];
+		<div id="container">   
+		    <div id="header"> 
+		    	<div class="jisc-logo"></div>
+		        <ul class='toolbar'>
+		        	<li>News</li>
+		            <li>Events</li>    
+		            <li>Funding</li>
+		            <li><input type="search" class="search-box"></input></li>
+		            <li><div class="button">Search JISC &amp; JISC Services sites</div></li>
+		        </ul>
+		        <div id='banner'>
+		        	<ul class='sponsor-logos'>
+			            <li class='jisc'></li>
+			            <li class='ucisa nologo'></li>
+			            <li class='sconul nologo'></li>
+			            <li class='rluk nologo'></li>
+			            <li class='rugit nologo'></li>
+		            </ul>
+		            <div class='clear'></div>
+		            <div class='main-logo'></div>
+		        </div>
+        		<div id='nav'>
+			        <ul>
+				        <li><a href='home'>HOME</a><span class="menu-separator">/</span></li>
+				        <li><a href='idea'>IDEAS</a><span class="menu-separator">/</span></li>
+				        <li><a href='incubator'>SHORTLIST</a><span class="menu-separator">/</span></li>
+				        <li><a href='project'>PROJECTS</a><span class="menu-separator">/</span></li>
+				        <li><a href='resources'>FUTURES FORUM</a></li>
+				        <li class='sign-in-link'><a href='login.html'>SIGN IN / REGISTER</a></li>
+		            </ul>
+		        </div>
+        	</div>
+        	<div id='content'>
+        		{viewport}
+        	</div>
+        	<div id='footer'>
+	        	<ul>
+		        	<li>&copy; 2013</li>
+		            <li><a href='about'> About</a></li>
+		            <li><a href='contact-us'>Contact Us</a></li>
+		            <li><a href='legal'>Legal </a></li>
+		            <li><a href='accesibility'>Accesibility</a></li>
+		            <li><a href='sitemap'>Sitemap</a></li>
+		            <li><a href='FAQ'>FAQ</a></li>
+		            <li><a href='help'>Help</a></li>
+	            </ul>
+            </div>            
+    	</div>
 
-	_gaq.push(['_setAccount', 'UA-23798900-1']);
-	_gaq.push(['_trackPageview']);
-
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-
-</script>
 	</body>
 </html>
