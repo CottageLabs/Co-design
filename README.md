@@ -17,7 +17,7 @@ access it (you may need to be mysql-root to do this):
 
 Next, build the database by running the `sql/codesign_production.sql` script:
 
-    $ mysql -u root codesign_development < sql/codesign_production.sql
+    $ mysql -u root codesign_production < sql/codesign_production.sql
 
 
 Application Configuration
@@ -33,6 +33,13 @@ parameters, e.g.
     define('MYSQL_PASSWORD', 'SOME-PASSWORD');
     define('MYSQL_SCHEMA', 'codesign_production');
     ?>
+
+Edit 'app/system/core/conf.php' and set these variables to the full local path of this repository.
+(Keep the /app/ suffix in the first variable):
+    define("SYSTEM_DIR", "/Users/martyn/development/co-design/app/");
+    [...]
+    define('SYS_ROOTDIR', "/Users/martyn/development/co-design/");
+
 
 Create an `.htaccess` file in the root application folder. The application
 should be served with Apache. Configure the following rewrite rules, to ensure
