@@ -8,8 +8,6 @@ class controller_profile extends controller {
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
 		
-		// Select the tab	
-		util::selectTab($this->superview(), "home");
 
 		util::userBox($this->m_user, $this->superView());
 				

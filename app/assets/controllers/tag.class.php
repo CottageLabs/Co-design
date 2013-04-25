@@ -7,9 +7,6 @@ class controller_tag extends controller {
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
 
-		// Select the tab	
-		util::selectTab($this->superview(), "home");	
-
 		util::userBox($this->m_user, $this->superView());
 				
 		$this->superview()->replace("sideContent", util::displayNewInnovators());

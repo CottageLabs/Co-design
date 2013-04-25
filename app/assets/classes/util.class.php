@@ -1,18 +1,7 @@
 <?php
 	class util {
 
-		public static function selectTab(view &$superView, $selection){
-			$tabs = array("home", "idea", "incubator", "project", "community", "resources");
-			
-			foreach($tabs as $tab){
-				if($selection == $tab){
-					$superView->replace($tab . '-selected', " selected");
-				} else {
-					$superView->replace($tab . '-selected', "");
-				}
-			}
-			
-		}
+        //No more tabs so no need for a selectTab function
 		
 		public static function displayNewInnovators(){
 			$output = "<h1>NEW INNOVATORS</h1>\n";

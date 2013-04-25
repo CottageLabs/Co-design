@@ -39,7 +39,7 @@ class controller_admin extends controller {
 		$this->m_noRender = false;
 		
 		// Select the tab	
-		util::selectTab($this->superview(), "project");	
+		//util::selectTab($this->superview(), "project");	
 
 		util::userBox($this->m_user, $this->superView());		
 		

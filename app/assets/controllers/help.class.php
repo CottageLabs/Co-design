@@ -5,9 +5,6 @@ class controller_help extends controller {
 	
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
-
-		// Select the tab	
-		util::selectTab($this->superview(), "community");	
 		
 		util::userBox($this->m_user, $this->superView());
 				

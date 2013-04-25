@@ -13,8 +13,6 @@ class controller_ideas extends controller {
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
 
-		// Select the tab	
-		util::selectTab($this->superview(), "idea");	
 		
 		util::userBox($this->m_user, $this->superView());
 		

@@ -10,9 +10,6 @@ class controller_projects extends controller {
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
 
-		// Select the tab	
-		util::selectTab($this->superview(), "project");	
-
 		util::userBox($this->m_user, $this->superView());		
 
 		$this->bind("^[0-9]+$", "renderItem");

@@ -243,3 +243,9 @@ body {
   color: #002542;
 
 }
+
+#content p {
+	font-family:Verdana, Geneva, sans-serif;
+	margin-top:1em;
+}	
+	

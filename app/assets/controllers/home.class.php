@@ -88,10 +88,7 @@ class controller_home extends controller {
 		$this->superview()->replace("sideContent", $sidebar . util::displayNewInnovators() );
 		
 		
-		
-		// Select the tab	
-		util::selectTab($this->superview(), "home");
-
+	
 		// Display user box		
 		util::userBox($this->m_user, $this->superView());
 
@@ -136,9 +133,6 @@ class controller_home extends controller {
 	
 	protected function newsHandler(){
 	
-			// Select the tab	
-		util::selectTab($this->superview(), "home");
-
 		// Display user box		
 		util::userBox($this->m_user, $this->superView());
 	
@@ -234,8 +228,6 @@ class controller_home extends controller {
 	protected function setupPage(){
 		$this->superview()->replace("sideContent", util::displayNewInnovators() );
 		
-		// Select the tab	
-		util::selectTab($this->superview(), "home");
 		// Display user box		
 		util::userBox($this->m_user, $this->superView());		
 	}
