@@ -6,6 +6,9 @@ This is pilot software for the Co-design programme, based on
 
 Database Setup
 --------------
+For any commands below: note that `mysql -u root` will try to login as root
+_without_ a password (and fail if root does have a password).
+Use `mysql -u root -p` in these circumstances.
 
 Create a MySQL database called `codesign_production` and a user login to
 access it (you may need to be mysql-root to do this):
