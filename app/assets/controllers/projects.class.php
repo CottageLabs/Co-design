@@ -1,5 +1,5 @@
 <?php
-class controller_project extends controller {
+class controller_projects extends controller {
 	
 	private $m_user;
 	private $m_noRender = false;

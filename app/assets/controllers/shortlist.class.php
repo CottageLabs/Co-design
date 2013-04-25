@@ -1,5 +1,5 @@
 <?php
-class controller_incubator extends controller {
+class controller_shortlist extends controller {
 	
 	private $m_user;
 	private $m_noRender = false;
@@ -36,7 +36,7 @@ class controller_incubator extends controller {
 	}
 
 	protected function incubatorIndex($args = NULL){
-		$this->setViewport(new view("incubatorIndex"));
+		$this->setViewport(new view("shortlistIndex"));
 
 		// Get the pageID, otherwise set to 1.
 		$pageId = isset($args['id']) ? (int)$args['id'] : 1;
@@ -44,7 +44,7 @@ class controller_incubator extends controller {
 		// We need to start at 0 in the database, really.
 		$pageId--;
 
-		$this->pageName = "- Incubator";
+		$this->pageName = "- Shortlist";
 
 		$search = isset($_GET['search']) ? $_GET['search'] : "";
 		$category = isset($_GET['category']) ? (int)$_GET['category'] : 0;

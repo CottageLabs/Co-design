@@ -1,5 +1,5 @@
 <?php
-class controller_idea extends controller {
+class controller_ideas extends controller {
 	
 	private $m_user;
 	private $m_innovators;
