@@ -15,10 +15,15 @@ access it (you may need to be mysql-root to do this):
     mysql> GRANT ALL PRIVILEGES ON codesign_production.* TO SOME-USER@localhost IDENTIFIED BY 'SOME-PASSWORD';
     mysql> quit
 
-Next, build the database by running the `sql/codesign_production.sql` script:
+Next, build the database tables by running the `sql/codesign_production.sql`
+script:
 
     $ mysql -u root codesign_production < sql/codesign_production.sql
 
+Create some test data in the database (optional). Note that if you run the
+application without any data, you may get error messages on the homepage:
+
+    $ mysql -u root codesign_production < sql/codesign_production_testdata.sql
 
 Application Configuration
 -------------------------
@@ -34,15 +39,17 @@ parameters, e.g.
     define('MYSQL_SCHEMA', 'codesign_production');
     ?>
 
-Edit 'app/system/core/conf.php' and set these variables to the full local path of this repository.
-(Keep the /app/ suffix in the first variable):
+Edit `app/system/core/conf.php` and set these variables to the full local path
+of this repository. (Keep the `/app/` suffix in the first variable):
+
     define("SYSTEM_DIR", "/Users/martyn/development/co-design/app/");
-    [...]
+    ...
     define('SYS_ROOTDIR', "/Users/martyn/development/co-design/");
 
 
-Create an `.htaccess` file in the root application folder. The application
-should be served with Apache. Configure the following rewrite rules, to ensure
+Create a `.htaccess` file in the root application folder. The application
+should be served with Apache. Ensure the file permissions on the `.htaccess`
+file are appropriate. Configure the following rewrite rules, to ensure
 requests are processed by index.php:
 
     # .htaccess file for co-design
