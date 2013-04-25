@@ -21,7 +21,10 @@ xcuserdata
 CVS
 
 app/assets/cache/
+
+# config will be different for everybody
 system_configuration.php
+app/system/core/conf.php
 
 .project
 
