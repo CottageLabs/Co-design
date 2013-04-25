@@ -31,8 +31,7 @@ class controller_resources extends controller {
 		
 		$this->pageName = "- Resources";
 		
-		$emptech_categories = $this->emptechData();
-		$this->viewport()->replace("emptech", $emptech_categories);
+		$this->viewport();
 	}
 	
 	protected function faq(){
@@ -42,13 +41,7 @@ class controller_resources extends controller {
 	}
 
 
-	private function emptechData(){
-		$e = new emptech();
-		
-		$e->getCategories();
-		
-		return $e->getFormattedCategories();
-	}
+	
 
 }
 
