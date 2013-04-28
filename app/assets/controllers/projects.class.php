@@ -1,6 +1,8 @@
 <?php
 class controller_projects extends controller {
 	
+    public $controller_name = "projects";
+    
 	private $m_user;
 	private $m_noRender = false;
 	private $m_currentProject;

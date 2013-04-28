@@ -1,6 +1,8 @@
 <?php
 class controller_shortlist extends controller {
 	
+    public $controller_name = "shortlist";
+    
 	private $m_user;
 	private $m_noRender = false;
 	private $m_currentProject;

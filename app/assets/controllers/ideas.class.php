@@ -1,6 +1,8 @@
 <?php
 class controller_ideas extends controller {
 	
+    public $controller_name = "ideas";
+    
 	private $m_user;
 	private $m_innovators;
 	private $m_currentIdea;
@@ -33,13 +35,13 @@ class controller_ideas extends controller {
 		$this->bind("^(?P<id>[0-9]+)/admin/update$", "adminSave"); // Administer an idea.
 		
 		// Bind pages
-		$this->bind("^page/(?P<id>[0-9]+)", "renderIdeasLab");
+		$this->bind("^page/(?P<id>[0-9]+)", "renderIdeasIndex");
 
-		$this->bindDefault('renderIdeasLab');
+		$this->bindDefault('renderIdeasIndex');
 	}
 	
-	protected function renderIdeasLab($args = NULL){
-		$this->setViewport(new view("ideasLab"));
+	protected function renderideasIndex($args = NULL){
+		$this->setViewport(new view("ideasIndex"));
 		
 		// Get the pageID, otherwise set to 1.
 		$pageId = isset($args['id']) ? (int)$args['id'] : 1;

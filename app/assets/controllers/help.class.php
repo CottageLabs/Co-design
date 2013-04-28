@@ -1,6 +1,8 @@
 <?php
 class controller_help extends controller {
 	
+    public $controller_name = "help";
+    
 	private $m_user;
 	
 	public function renderViewport() {

@@ -2,6 +2,8 @@
 
 class controller_admin extends controller {
 
+    public $controller_name = "admin";
+
 	private $m_user;
 	private $m_noRender = false;
 

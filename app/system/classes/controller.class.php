@@ -112,6 +112,7 @@ abstract class controller implements viewController {
 		$this->superview->replace('version', REALISE_VERSION);
 		$this->superview->replace('dev', (DEV) ? "DEV" : "");
 		$this->superview->replace('pagename', $this->pageName);
+        $this->superview->replace('controller-style', $this->controller_name);
 
 		echo $this->superview->get();		
 	}

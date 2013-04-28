@@ -2,6 +2,8 @@
 
 class controller_about extends controller {
 
+    public $controller_name = "about";
+
 	private $m_user;
 
 	public function renderViewport() {

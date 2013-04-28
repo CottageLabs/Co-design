@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-
-
 		<title>Co-design {pagename} {dev}</title>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <!-- styles - reset sheet first -->
         <link type="text/css" rel="stylesheet" href="/presentation/styles/reset.css"/>
@@ -13,7 +13,8 @@
 		<link href='/presentation/lib/bootstrap/css/bootstrap.css' rel='stylesheet' type='text/css'/>
 
         <!-- then our styles -->
-        <link type="text/css" rel="stylesheet" href="/presentation/styles/home.css"/>
+        <link type="text/css" rel="stylesheet" href="/presentation/styles/common.css"/>
+        <link type="text/css" rel="stylesheet" href="/presentation/styles/{controller-style}.css"/>
         <!-- end of styles -->
         
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script> 
@@ -27,14 +28,15 @@
 	<body>
 		<div id="container">   
 		    <div id="header"> 
-		    	<div class="jisc-logo"></div>
+	    		<div class="jisc-logo"></div>
 		        <ul class='toolbar'>
-		        	<li>News</li>
-		            <li>Events</li>    
-		            <li>Funding</li>
-		            <li><input type="search" class="search-box"></input></li>
-		            <li><div class="button">Search JISC &amp; JISC Services sites</div></li>
+        			<li><a href='#news.html'>News</a></li>
+            		<li><a href='#events.html'>Events</a></li>    
+            		<li><a href='#funding.html'>Funding</a></li>
+            		<li><input type="search" class="search-box"></input></li>
+            		<li><a href='#/search' class="button">Search JISC &amp; JISC Services sites</a></li>
 		        </ul>
+        
 		        <div id='banner'>
 		        	<ul class='sponsor-logos'>
 			            <li class='jisc'></li>
@@ -54,12 +56,15 @@
 				        <li><a href='/projects'>PROJECTS</a><span class="menu-separator">/</span></li>
 				        <li><a href='/futures_forum'>FUTURES FORUM</a></li>
 				        <li class='sign-in-link'><a href='login.html'>SIGN IN / REGISTER</a></li>
+				        <div class='clear'></div>
 		            </ul>
 		        </div>
         	</div>
-        	<div id='content'>
-        		{viewport}
-        	</div>
+        	
+        	
+    		{viewport}
+        	
+        	
         	<div id='footer'>
 	        	<ul>
 		        	

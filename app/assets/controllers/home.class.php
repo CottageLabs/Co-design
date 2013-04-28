@@ -2,6 +2,7 @@
 
 class controller_home extends controller {
 	
+    public $controller_name = "home";
 	private $m_user;
 	private $m_noRender = false;
 	private $errors = array();
