@@ -48,7 +48,7 @@ body {
 #banner {
 	height: 215px;
 	background: #002542;
-	overflow: auto;
+	overflow: hidden;
 	width: 100%;
 }
 
