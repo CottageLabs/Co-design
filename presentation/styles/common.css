@@ -1,18 +1,18 @@
 /* custom fonts*/
 @font-face { 
-	font-family: Novecentowide-DemiBold; src: url('../fonts/Novecentowide-DemiBold.otf');
+	font-family: Novecentowide-DemiBold; src: url('../fonts/novecentowide-demibold.otf');
 }
 
 @font-face { 
-	font-family: Novecentowide-Normal; src: url('../fonts/Novecentowide-Normal.otf');
+	font-family: Novecentowide-Normal; src: url('../fonts/novecentowide-normal.otf');
 }
 
 @font-face { 
-	font-family: Novecentowide-Light; src: url('../fonts/Novecentowide-Light.otf');
+	font-family: Novecentowide-Light; src: url('../fonts/novecentowide-light.otf');
 }
 
 @font-face { 
-       font-family: Novecentowide-Medium; src: url('../fonts/Novecentowide-Medium.otf');
+       font-family: Novecentowide-Medium; src: url('../fonts/novecentowide-medium.otf');
 }
 
 h1 {

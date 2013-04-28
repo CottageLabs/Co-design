@@ -1,0 +1,251 @@
+/* custom fonts*/
+@font-face { 
+	font-family: Novecentowide-DemiBold; src: url('../fonts/Novecentowide-DemiBold.otf');
+}
+
+@font-face { 
+	font-family: Novecentowide-Normal; src: url('../fonts/Novecentowide-Normal.otf');
+}
+
+@font-face { 
+	font-family: Novecentowide-Light; src: url('../fonts/Novecentowide-Light.otf');
+}
+
+h1 {
+	font-family:Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
+	font-size:2.4em;
+	color: #002542;
+}
+
+h2 {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:1em;
+	color:#222;
+	line-height:120%;
+}
+
+h3 {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:1em;
+	color: #FF6E19;
+	font-style:italic;
+	line-height:170%;
+}
+	
+body {
+	height:auto;
+}
+
+.clear {
+	clear: both;
+}
+
+#container {
+	width: 1024px;
+	margin: 10px auto 0px auto;
+}
+
+#banner {
+	height: 215px;
+	background: #002542;
+	overflow: auto;
+	width: 100%;
+}
+
+#banner .main-logo {
+	background-image:url(../images/redesign/co-design.png);
+    background-size: contain;
+	background-repeat:no-repeat;
+	width: 100%;
+	height: 96px;
+	margin: 0 0 0 50px;
+}
+
+#banner .sponsor-logos {
+	margin: 18px 10px 18px 0;
+	height: 40px;
+	float: right;
+}
+
+.sponsor-logos li {
+	height: 100%;
+	width: 60px;
+    background-size: contain;
+	background-repeat:no-repeat;
+	display: inline-block;
+}
+
+.sponsor-logos .jisc {
+	background-image:url(../images/redesign/JISC_white.png);
+}
+
+.sponsor-logos .ucisa {
+	background-image:url(../images/redesign/ucisa.png);
+	width: 80px;
+}
+
+.sponsor-logos .sconul {
+	background-image:url(../images/redesign/sconul.png);
+	width: 100px;
+}
+
+.sponsor-logos .sconul {
+	background-image:url(../images/redesign/sconul.png);
+	background-position-y: 5px;
+}
+
+.sponsor-logos .rluk {
+	background-image:url(../images/redesign/RLUK.png);
+	background-position-y: -15px;
+	width: 80px;
+}
+
+.sponsor-logos .rugit {
+	background-image:url(../images/redesign/rugit.png);
+}
+
+.sponsor-logos .nologo {
+    border: dotted #999 1px;
+    background-image: none;
+    background: #002542;
+    width: 60px;
+    height: 35px;
+    ;
+}
+
+.toolbar {
+	height: 60px; 
+	float: right;
+}
+
+.toolbar li {
+	display: inline-block;
+}
+
+.jisc-logo {
+	margin: 0 0 0 50px;
+	display: inline-block;
+	height: 40px;
+	background-image:url(../images/redesign/JISC_orange.png);
+    background-size: contain;
+	width: 100px;
+	background-repeat:no-repeat;
+}
+
+#nav {
+	background: #f37c22;
+	font-family:Novecentowide-Normal, Verdana, Geneva, sans-serif;
+}
+
+#nav ul {
+	padding: 5px 20px 5px 78px;
+	font-size: 0px;
+}
+
+#nav li {
+	display: inline-block;
+	color: white;
+	font-size: 16px;
+}
+
+#nav li:last-child {
+	padding: 3px;
+	background: #fff;
+	border-radius: 4px;
+	color: #002542;
+	margin-left: 200px;
+}
+
+#nav li:last-child a {
+	color: #002542;
+}
+
+#nav li a {
+	color: white;
+	text-decoration: none;
+}
+
+#nav .menu-separator {
+	margin: 0 10px 0 10px;
+}
+
+#content {
+}	
+	
+.codesign-info {
+	text-align: center;
+	padding: 40px 163px 20px 163px;
+	width:595px;
+	border-bottom: 1px solid #002542;
+	margin: 0 52px 20px 52px;
+}
+
+.codesign-info .horizontal-bar {
+	width: 920px;
+	
+}
+
+.codesign-info h1{
+	padding-bottom:10px;
+}
+
+.columns .column {
+	display:inline-block;
+	width: 33%;
+	text-align: center;
+}
+
+.column .thin {
+	font-family:Novecentowide-Light, Verdana, Geneva, sans-serif;
+}
+.column .more-info {
+	font-size: 0.875em;
+}
+
+.right {
+	width:290px;
+	float:right;
+}
+
+.left {
+	width: 290px;
+}
+
+.middle {
+	width:267px;
+}
+
+#icon-box {
+	width:85px;
+	height:74px;
+	display:inline-block;
+	padding: 10px 0 10px 0;
+}
+
+#footer ul li {
+	display: inline-block;
+}
+
+#footer {
+  color: #002542;
+  font-family:Verdana, Geneva, sans-serif;
+  font-size: 0.6875em;
+  text-align:center;
+  height:30px;
+  background-color:#dee4ee;
+  padding:30px 0 0 0;
+  margin-top:100px;
+  
+}
+
+#footer a {
+  text-decoration: none;
+  color: #002542;
+
+}
+
+#content p {
+	font-family:Verdana, Geneva, sans-serif;
+	margin-top:1em;
+}	
+	
