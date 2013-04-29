@@ -1,20 +1,114 @@
-<div id="ideaLab">
-		<div id="exposeHolder" style="clear:both">
-		<h1>Shortlist</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus tristique nunc vitae vulputate. Duis faucibus nulla ac diam fringilla et lacinia libero auctor. Sed in nisl enim, a sodales nisl. Quisque adipiscing pulvinar diam vitae elementum. Nullam at tortor et odio pellentesque facilisis at non quam. Nunc iaculis viverra eros eu porttitor. Quisque nisi nulla, pellentesque id pretium eu, ornare in felis.
-		</p>
-
-		<p>
-			Nunc vitae ipsum orci. Aliquam vel ipsum in lectus malesuada molestie. Phasellus non leo eu mauris luctus volutpat. Nullam erat orci, elementum aliquam pharetra eget, aliquam at augue. Integer lorem justo, interdum eget lacinia ut, commodo nec magna. Proin in nibh nisl, sed sollicitudin nisi. Etiam hendrerit turpis quis ipsum vestibulum at sodales eros imperdiet. Sed ultrices mattis tellus id ultricies. Nulla tempor neque at neque dignissim vel ullamcorper purus ornare. Morbi ac pharetra magna. Nulla at mi dolor. Donec tempor dapibus orci ac semper.
-		</p>
-	</div>
-	
-	<div id="ideaHolder">
-		{recentIdeas}
-	</div>
-	
-	<div id="pagination">
-		{pages}
-	</div>
+<div id='content' class='shortlist'>
+    <div class="columns">
+        
+        <div class="column column-thin">
+        <div class="context">
+        <h1>SHORTLIST</h1>
+        <p>
+        Ovid ut vollessum volorum hiliquiam, occae aligent asimolu ptaqui vit rehenda volorepro doluptatet eumquisquo ma cum rerorat etuscid empost ut que ne pel id mod ut incto tempossum veriorianda dolentiam cone id et ius molor accus nonsero vitiae cus eariori bearum apelessunt qui officit la intibus dollesequos as nonse eos qui occae re nonse dolessi ncturia dollestium cum, ommolor ionseque nonsequi odias mo blaboreperro blamus et vendunt id mod qui di doluptis es vero tempora dolendunt pra delleni hitiunto dolor aditiis volorrorpor sitio.
+        </p>
+        </div>
+        
+        <div class='context-help'>
+        <h2>INTERESTED IN TAKING AN IDEA INTO THE INCUBATOR?</h2>
+        <p>
+        The documents below may help you turn your idea into an Open Source project. If you would like to discuss ideas or are interested in this market place do <a href='googlegroup'>contact us via our Google Group</a>
+        </p>
+        </div>
+        <div class='context-links'>
+        <a href='somepage'>OTHER OPEN-SOURCE SOFTWARE »</a>
+        <a href='somepage'>HELP »</a>
+        <a href='somepage'>FAQ »</a>
+        <a href='somepage'>MORE INFO »</a>
+        </div>
+        </div>
+        
+        <div class="column column-main">
+        <div class='search-bar'>
+        <h2>SEARCH IDEAS</h2>
+        <form accept-charset="UTF-8" action="/search_projects" method="post" class='search-form'>
+        <ol>
+        <li>
+        <label class=" label" for="project_name">Name contains</label>
+        <input name="project[name]" type="text"/>
+        </li>
+        <li>
+        <label class=" label" for="category">Category</label>
+        <select class="category" name="project[category]"><option value=""></option>
+        <option selected value="any">Any</option>
+        <option value="1">Category 1</option>
+        <option value="2">Category 2</option>
+        <option value="3">Category 3</option>
+        <option value="4">Category 4</option></select>
+        </li>
+        </ol>
+        </form>
+        </div>
+        <div class='tiles'>
+        <div class='tile-wrapper'>
+        <div class='tile'>
+        <div class='label listed-project'>LISTED PROJECT</div>
+        <img src='/presentation/images/project.png' />
+        <div class='clear'></div>
+        <div class='title'>PROJECT TITLE LINE ONE</div>
+        <div class='description'>Picte nullorro officid ipsam, il iuntotatur, omnihicium alisqui commolu ptibea consequi dendicipsus, quis d</div>
+        </div>
+        <div class='actions'>
+        <a href='messages' class='action'>MESSAGES (<span>2</span>)</a>
+        <a href='messages' class='action'>INTEREST (<span>4</span>)</a>
+        <a href='messages' class='action'>ASSOCIATED (<span>0</span>)</a>
+        </div>
+        </div>
+        
+        <div class='tile-wrapper'>
+        <div class='tile'>
+        <img src='/presentation/images/project.png' />
+        <div class='clear'></div>
+        <div class='title'>PROJECT TITLE LINE TWO</div>
+        <div class='description'>Picte nullorro officid ipsam, il iuntotatur, omnihicium alisqui commolu ptibea consequi dendicipsus, quis d</div>
+        </div>
+        <div class='actions'>
+        <a href='messages' class='action'>MESSAGES (<span>2</span>)</a>
+        <a href='messages' class='action'>INTEREST (<span>4</span>)</a>
+        <a href='messages' class='action'>ASSOCIATED (<span>0</span>)</a>
+        </div>
+        </div>
+        
+        <div class='tile-wrapper'>
+        <div class='tile'>
+        <div class='label listed-project'>LISTED PROJECT</div>
+        <img src='/presentation/images/project.png' />
+        <div class='clear'></div>
+        <div class='title'>PROJECT TITLE THIS IS LINE ONE THIS IS LINE TWO</div>
+        <div class='description'>Picte nullorro officid ipsam, il iuntotatur, omnihicium alisqui commolu ptibea consequi dendicipsus, quis d</div>
+        </div>
+        <div class='actions'>
+        <div class='action'>MESSAGES (<span>2</span>)</div>
+        <div class='action'>INTEREST (<span>4</span>)</div>
+        <div class='action'>ASSOCIATED (<span>0</span>)</div>
+        </div>
+        </div>
+        
+        <div class='tile-wrapper'>
+        <div class='tile'>
+        <img src='/presentation/images/project.png' />
+        <div class='clear'></div>
+        <div class='title'>PROJECT TITLE LINE TWO</div>
+        <div class='description'>Picte nullorro officid ipsam, il iuntotatur, omnihicium alisqui commolu ptibea consequi dendicipsus, quis d</div>
+        </div>
+        <div class='actions'>
+        <a href='messages' class='action'>MESSAGES (<span>2</span>)</a>
+        <a href='messages' class='action'>INTEREST (<span>4</span>)</a>
+        <a href='messages' class='action'>ASSOCIATED (<span>0</span>)</a>
+        </div>
+        </div>
+ 
+        <div class='clear'></div>       
+        </div>
+        <a href='more' class='button more'>MORE IDEAS</a>
+        <div class='clear'></div>
+        
+        
+        </div>
+    </div>
 </div>
