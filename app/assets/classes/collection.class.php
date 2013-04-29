@@ -14,7 +14,7 @@ class collection {
 	const SORT_ASC = 2;
 	
 	const TYPE_IDEA = 3;
-	const TYPE_INCUBATED = 4;
+	const TYPE_SHORTLIST = 4;
 	const TYPE_PROJECT = 5;
 	const TYPE_USER = 6;
 	const TYPE_TAG = 7;
@@ -82,7 +82,7 @@ class collection {
 				}
 			break;
 			
-			case collection::TYPE_INCUBATED:
+			case collection::TYPE_SHORTLIST:
 				$this->m_query = array_merge(array(array("", "incubated", "=", 1)), $this->m_query);
 				$db->select(array("id"), "project", $this->m_query, $this->m_sort . $this->m_limit, "SELECT SQL_CALC_FOUND_ROWS %s FROM %s %s %s");
 				$db->queuedQuery("SELECT FOUND_ROWS();");

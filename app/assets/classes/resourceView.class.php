@@ -17,7 +17,7 @@ class resourceView extends view {
 			$this->resourceType = "idea";
 		} else {
 			if((BOOL)$this->resource->getIncubated()){
-				$this->resourceType = "incubator";
+				$this->resourceType = "shortlist";
 			} else {
 				$this->resourceType = "project";
 			}

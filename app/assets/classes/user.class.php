@@ -370,7 +370,7 @@ class user extends dbo {
 		foreach($this->getIncubated() as $p){
 			$project = new view('frag.profileProject');
 			$project->replace("image", $p['image']);
-			$project->replace("url", "/incubator/".$p['id']);
+			$project->replace("url", "/shortlist/".$p['id']);
 			$project->replace("name", $p['name']); 
 			$project->replace("description", $p['overview']);
 			$projects.=$project->get();

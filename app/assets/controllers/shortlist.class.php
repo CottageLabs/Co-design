@@ -31,10 +31,10 @@ class controller_shortlist extends controller {
 		// Bind pages
 		$this->bind("^page/(?P<id>[0-9]+)", "incubatorIndex");
 
-		$this->bindDefault('incubatorIndex');
+		$this->bindDefault('shortlistIndex');
 	}
 
-	protected function incubatorIndex($args = NULL){
+	protected function shortlistIndex($args = NULL){
 		$this->setViewport(new view("shortlistIndex"));
 
 		// Get the pageID, otherwise set to 1.
@@ -48,7 +48,7 @@ class controller_shortlist extends controller {
 		$search = isset($_GET['search']) ? $_GET['search'] : "";
 		$category = isset($_GET['category']) ? (int)$_GET['category'] : 0;
 
-		$projects = new collection(collection::TYPE_INCUBATED);
+		$projects = new collection(collection::TYPE_SHORTLIST);
 		$projects->setLimit($pageId * $this->m_pageLimit, $this->m_pageLimit);
 		$projects->setSort("id", collection::SORT_DESC);
 

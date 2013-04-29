@@ -47,43 +47,20 @@ class controller_home extends controller {
 		$sidebar->append(new view("frag.latest"));
 		
 		$latestIdea = new collection(collection::TYPE_IDEA);
-		$latestIncubated = new collection(collection::TYPE_INCUBATED);
+		$latestShortlisted = new collection(collection::TYPE_SHORTLIST);
 		$latestProject = new collection(collection::TYPE_PROJECT);
 		
 		$latestIdea->setLimit(1);
 		$latestIdea->setSort("id", collection::SORT_DESC);
 		$idea = $latestIdea->get();
 		
-		$latestIncubated->setLimit(1);
-		$latestIncubated->setSort("id", collection::SORT_DESC);
-		$incubated = $latestIncubated->get();
+		$latestShortlisted->setLimit(1);
+		$latestShortlisted->setSort("id", collection::SORT_DESC);
+		$shortlisted = $latestShortlisted->get();
 
 		$latestProject->setLimit(1);
 		$latestProject->setSort("id", collection::SORT_DESC);
 		$project = $latestProject->get();
-
-		
-		$sidebar->replaceAll(array(
-			"idea" => $idea[0]->getTitle(),
-			"idea-id" => $idea[0]->getId()	
-		));
-		
-		if(count($incubated) > 0){
-			$sidebar->replaceAll(array(
-				"incubated" => $incubated[0]->getName(),
-				"incubated-id" => $incubated[0]->getId()
-			));
-		} else {
-			$sidebar->replaceAll(array(
-				"incubated" => "No Incubated Projects",
-				"incubated-id" => ""
-			));
-		}
-		
-		$sidebar->replaceAll(array(
-			"project" => $project[0]->getName(),
-			"project-id" => $project[0]->getId()
-		));
 
 
 		$this->superview()->replace("sideContent", $sidebar . util::displayNewInnovators() );

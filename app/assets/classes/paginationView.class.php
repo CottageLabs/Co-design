@@ -29,8 +29,8 @@
 				$this->resourceType = "project";
 			break;
 			
-			case collection::TYPE_INCUBATED:
-				$this->resourceType = "incubator";
+			case collection::TYPE_SHORTLIST:
+				$this->resourceType = "shortlist";
 			break;
 			
 		}

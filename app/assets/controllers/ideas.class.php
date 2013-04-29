@@ -166,7 +166,7 @@ class controller_ideas extends controller {
 					break;
 					
 					case 1:
-						$frag->replace("projectURL", "incubator/" . $project->getId());
+						$frag->replace("projectURL", "shortlist/" . $project->getId());
 					break;
 				}
 				$o->append( $frag->get() );
