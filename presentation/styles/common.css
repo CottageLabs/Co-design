@@ -448,3 +448,9 @@ body {
 	box-shadow: 0 2px 0px #96a5b1;
 	float: right;
 }
+
+
+#user_login table, #user_login td {
+	margin: 5px;
+	padding: 5px;
+}

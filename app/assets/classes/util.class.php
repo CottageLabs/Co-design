@@ -65,13 +65,23 @@
 			return $o;	
 		}
 		
-		public static function userBox(user &$u, view &$superView){
-			if($u->getId() != null){
-				$superView->replace("userBox", "<div id=\"loggedIn\"><div id=\"user\" style=\"float:left\"><a href=\"/profile\"><img src='{$u->getPicture()}' width='30' height='30' align='left' alt='User profile picture' /> {$u->getName()}</a> (<a href=\"/auth/logout\">Logout</a>)</div></div>");			
-			} else {
-				$superView->replace("userBox", new view('frag.login'));
-			}
-		}
+        //<li class='sign-in-link'><a href='login.html'>SIGN IN / REGISTER</a></li>
+        
+        public static function userBox(user &$u, view &$superView){
+            if($u->getId() != null){
+                $superView->replace("userBox", "<div id=\"loggedIn\"><div id=\"user\" style=\"float:left\"><a href=\"/profile\"><img src='{$u->getPicture()}' width='30' height='30' align='left' alt='User profile picture' /> {$u->getName()}</a> (<a href=\"/auth/logout\">Logout</a>)</div></div>");            
+            } else {
+                $superView->replace("userBox", new view('frag.login'));
+            }
+        }
+        
+		//public static function userBoxOLD(user &$u, view &$superView){
+		//	if($u->getId() != null){
+		//		$superView->replace("userBox", "<div id=\"loggedIn\"><div id=\"user\" style=\"float:left\"><a href=\"/profile\"><img src='{$u->getPicture()}' width='30' height='30' align='left' alt='User profile picture' /> {$u->getName()}</a> (<a href=\"/auth/logout\">Logout</a>)</div></div>");			
+		//	} else {
+		//		$superView->replace("userBox", new view('frag.login'));
+		//	}
+		//}
 		
 		public static function addScripts(array $scripts){
 			$out = "";
