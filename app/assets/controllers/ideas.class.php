@@ -51,6 +51,9 @@ class controller_ideas extends controller {
 
 		$this->pageName = "- Ideas";
 
+        // Put the appropriate style on the navigation bar link pointing to the current page
+        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
+
 		$side = new view('frag.filters');
 		$side->append(new view('ideaLinks'));
 		$side->append(new view('frag.sideInfo'));

@@ -41,6 +41,9 @@ class controller_home extends controller {
 	
 	
 	protected function homepageHandler(){
+        // Put the appropriate style on the navigation bar link pointing to the current page
+		$this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
+
 		$sidebar = new view();
 		
 		$sidebar->append(new view('frag.sideHelp'));

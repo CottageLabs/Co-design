@@ -2,6 +2,7 @@
 
 class controller_futures_forum extends controller {
 
+    public $controller_name = "futures_forum";
 	private $m_user;
 
 
@@ -27,6 +28,9 @@ class controller_futures_forum extends controller {
 		$this->setViewPort(new view('futures_forum'));
 		$this->pageName = "- Futures Forum";
 		$this->viewport();
+
+        // Put the appropriate style on the navigation bar link pointing to the current page
+        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
 	}
 	
 	

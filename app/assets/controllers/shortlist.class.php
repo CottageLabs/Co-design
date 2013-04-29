@@ -45,6 +45,9 @@ class controller_shortlist extends controller {
 
 		$this->pageName = "- Shortlist";
 
+        // Put the appropriate style on the navigation bar link pointing to the current page
+        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
+
 		$search = isset($_GET['search']) ? $_GET['search'] : "";
 		$category = isset($_GET['category']) ? (int)$_GET['category'] : 0;
 
