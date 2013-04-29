@@ -31,6 +31,22 @@ class controller_auth extends controller {
 		
 		// Check login
 		try {
+		    if (strlen(trim($_POST['name'])) == 0) {
+		        throw new Exception("Name cannot be blank");
+		    }
+            
+            if (strlen(trim($_POST['username'])) == 0) {
+                throw new Exception("Username cannot be blank");
+            }
+            
+            if (strlen(trim($_POST['email'])) == 0) {
+                throw new Exception("Email cannot be blank");
+            }
+            
+             if (strlen(trim($_POST['password'])) == 0) {
+                throw new Exception("Password cannot be blank");
+            }
+		    
 			$u = new user($_POST['username'], user::USERNAME_CHECK);
 			
 			$u->setName($_POST['name']);
@@ -51,7 +67,9 @@ class controller_auth extends controller {
 			$this->redirect("/home");			
 			
 		} catch(Exception $e){
-			echo $e->getMessage();
+	        //echo $e->getMessage();
+		    $this->redirect("/home?alert=" . urlencode($e->getMessage()));
+			
 		}
 	}
 	

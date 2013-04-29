@@ -5,8 +5,8 @@ class user extends dbo {
 	private $name;
 	private $tagline = "";
 	private $bio;
-	private $picture = "";
-	private $defaultPicture = "/presentation/images/avatar.png";
+	//private $picture = "";
+	//private $defaultPicture = "/presentation/images/avatar.png";
 	private $email = "";
 	private $emailPublic = 0;
 	private $username = "";
@@ -83,7 +83,7 @@ class user extends dbo {
 			$this->name = $p[0]['name'];
 			$this->tagline = $p[0]['tagline'];
 			$this->linkedin_id = $p[0]['linkedinID'];
-			$this->picture = $p[0]['picture'];
+			//$this->picture = $p[0]['picture'];
 			$this->email = $p[0]['email'];
 			$this->username = $p[0]['username'];
 			$this->hash = $p[0]['hash'];
@@ -102,7 +102,7 @@ class user extends dbo {
 		$data['name'] = $this->name;
 		$data['tagline'] = $this->tagline;
 		if($this->linkedin_id != null) $data['linkedinID'] = $this->linkedin_id;
-		$data['picture'] = $this->picture;
+		//$data['picture'] = $this->picture;
 		$data['email'] = $this->email;
 		$data['username'] = $this->username;
 		$data['hash'] = $this->hash;
