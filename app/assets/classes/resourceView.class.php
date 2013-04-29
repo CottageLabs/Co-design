@@ -26,15 +26,26 @@ class resourceView extends view {
 		$this->parse();
 	}
 	
+    private function pluralise($name) {
+        switch ($name) {
+            case "shortlist":
+                return "shortlist";
+                break;
+            default:
+                return $name . "s";
+                break;
+        }
+    }
+    
 	private function parse(){
-		$this->replace("title", $this->resource->getName());
+		$this->replace("title", $this->resource->getName() );
 		$this->replace("points", $this->resource->countVotes());
 		$this->replace("chats", $this->resource->getChatCount());
 		$this->replace("pitch", $this->resource->getOverview());
 		$this->replace("image", $this->resource->getImage());
 		$this->replace("id", $this->resource->getId());
 		$this->replace("type", get_class($this->resource));
-		$this->replace("url", BASEURL . $this->resourceType . "/" . $this->resource->getId());
+		$this->replace("url", "/" . $this->pluralise($this->resourceType) . "/" . $this->resource->getId());
 		
 		if(get_class($this->resource) == "project"){
 			$this->replace("assoc", $this->resource->getSiblingCount());

@@ -10,8 +10,8 @@ class controller_admin extends controller {
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
 		
-		$this->bind("(?P<name>idea)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
-		$this->bind("(?P<name>project)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
+		$this->bind("(?P<name>ideas)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
+		$this->bind("(?P<name>projects)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
 		
 		$this->bindDefault('defaultHandler');
 	}

@@ -135,16 +135,18 @@ class controller_ideas extends controller {
 		$this->viewport()->replace("description", $this->m_currentIdea->getDescription());
 		$this->viewport()->replace("id", $id);
 		
+        
 		// Votes
 		$this->viewport()->replace("voteCount", $this->m_currentIdea->countVotes());
-		
-		// Has the user voted
+		/*
+		 //MW THIS CODE CAN CRASH WITH "Table 'codesign_production.idea_user' doesn't exist"
+        // Has the user voted
 		if($this->m_currentIdea->hasVoted($this->m_user)){
 			// Button to nullify the vote.
 			$this->viewport()->replace("vote", "/presentation/images/minus-white.png");
 		} else {
 			$this->viewport()->replace("vote", "/presentation/images/thumb-up.png");
-		}
+		}*/
 		
 		
 		// Linked projects

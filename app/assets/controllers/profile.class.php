@@ -11,7 +11,7 @@ class controller_profile extends controller {
 
 		util::userBox($this->m_user, $this->superView());
 				
-		$this->superview()->replace("sideContent", util::displayNewInnovators());
+		//$this->superview()->replace("sideContent", util::displayNewInnovators());
 
 		$this->bind('view/(?P<profile_id>[a-zA-Z0-9\. ]+)', 'viewProfile');
 

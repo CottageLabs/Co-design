@@ -62,6 +62,7 @@ abstract class resource extends dbo {
 		
 	}
 	
+     //MW THIS CODE CAN CRASH WITH "Table 'codesign_production.idea_user' doesn't exist"
 	public function hasVoted(user $user){
 		$db = db::singleton();
 		$check = $db->single("SELECT COUNT(*) FROM " . get_class($this) . "_user WHERE " . get_class($this) . "_id = '{$this->getId()}' AND user_id = '{$user->getId()}'");
@@ -69,6 +70,7 @@ abstract class resource extends dbo {
 		return true;	
 	}
 	
+     //MW THIS CODE CAN CRASH WITH "Table 'codesign_production.idea_user' doesn't exist"
 	public function voteUp(user $user) {
 		$db = db::singleton();
 		$check = $db->single("SELECT id FROM " . get_class($this) . "_user WHERE " . get_class($this) . "_id = '{$this->getId()}' AND user_id = '{$user->getId()}'");
@@ -77,6 +79,7 @@ abstract class resource extends dbo {
 		return true;
 	}
 	
+     //MW THIS CODE CAN CRASH WITH "Table 'codesign_production.idea_user' doesn't exist"
 	public function promoteUser(user $currentUser, user $promotionUser, $role = resource::MEMBERSHIP_USER){
 		if(get_class($this) != "project") throw new Exception("This type of resource does not support user roles.");
 		
@@ -89,6 +92,7 @@ abstract class resource extends dbo {
 		return true;
 	}
 	
+     //MW THIS CODE CAN CRASH WITH "Table 'codesign_production.idea_user' doesn't exist"
 	public function voteClear(user $user) {
 		$db = db::singleton();
 		$check = $db->single("SELECT id FROM " . get_class($this) . "_user WHERE " . get_class($this) . "_id = {$this->getId()} AND user_id = {$user->getId()}");
