@@ -450,7 +450,7 @@ body {
 }
 
 
-#user_login table, #user_login td {
+#user_login table, #user_login td, #user_registration table, #user_registration td {
 	margin: 5px;
 	padding: 5px;
 }
