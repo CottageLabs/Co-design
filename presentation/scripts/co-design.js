@@ -2,23 +2,14 @@ $(document).ready(function(){
 	//turn on fancybox for login
 	$('.fancybox').fancybox();
 	
-/*		alert('test0');
-		$('#loginShow, .loginButton').bind('click', function(){
-			alert('test1A');
-			 $.get('/home/login', function(data){
-			 	alert('test1B');
-			 	$('#loginForm').html(data);
-			 	$('#username').focus();
-			 });
-		});
-		
-		$('#registerShow, .registerButton').bind('click', function(){
-			alert('test2A');
-			 $.get('/home/register', function(data){
-			 	alert('test2B');
-			 	$('#contentPane').html(data);
-			 	$('#username').focus();
-			 });
-		});
-*/
+	//Display an alert if the URL has ?alert=<message>
+  	var regex = new RegExp(  "[\\?&]alert=([^&#]*)" );
+  	var results = regex.exec( window.location.href );
+  	if( results != null ) {
+  		$.fancybox.open({
+			content : '<div class="co-design-alert"><h1>Alert</h1><h2>' + decodeURI(results[1].replace(/\+/g, " ")) +'</h2><p class="ok"><input type="button" onClick="$.fancybox.close();" value="Ok" /></p></div>',
+			modal: true
+		}); 	
+  	}
+  
 });	

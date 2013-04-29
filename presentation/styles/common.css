@@ -454,3 +454,19 @@ body {
 	margin: 5px;
 	padding: 5px;
 }
+
+div.co-design-alert h1 {
+	padding: 0.5em;
+	text-align:center;
+}
+
+div.co-design-alert h2 {
+	padding: 0.3em;
+	text-align:center;
+	font-weight: bold;
+}
+
+div.co-design-alert p.ok {
+	margin-top: 20px;
+	text-align: right;	
+}

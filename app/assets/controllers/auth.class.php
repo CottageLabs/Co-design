@@ -22,7 +22,8 @@ class controller_auth extends controller {
 	
 			$this->redirect("/home");			
 		} catch(Exception $e){
-			echo $e->getMessage();
+			//echo $e->getMessage();
+            $this->redirect("/home?alert=" . urlencode($e->getMessage()));   
 		}
 	}
 	
@@ -40,9 +41,9 @@ class controller_auth extends controller {
 			$u->setUsername($_POST['username']);
 			$u->setHash(util::pass($_POST['password']));
 			
-			$gravatar = "http://www.gravatar.com/avatar/" . md5( strtolower(trim($_POST['email'])) ) . "?d=" . urlencode(BASEURL . "presentation/images/avatar.png") . "&s=60";
+			//$gravatar = "http://www.gravatar.com/avatar/" . md5( strtolower(trim($_POST['email'])) ) . "?d=" . urlencode(BASEURL . "presentation/images/avatar.png") . "&s=60";
+			//$u->setPicture($gravatar);
 			
-			$u->setPicture($gravatar);
 			$u->commit();
 			
 			$this->setObject(get_class($u), $u);
@@ -55,7 +56,7 @@ class controller_auth extends controller {
 	}
 	
 	protected function linkedinlogin(){
-		$linkedIn = new linkedin('tia2biBzgu20ST0XwYSuG-a4ciAcBo8UsX6IzzKYjlDmFs1h0o8w_W7r1mG07n6U', 'pKL9nJh9Tw3LZPeSHQ3j2IcptRPDkTsA1u9PPFSIIEwwZK1HI4IcaUQoFkpkKRiG', BASEURL . "auth/verify");
+		$linkedIn = new linkedin('APIKEY', 'APISECRET', BASEURL . "auth/verify");
 		
 		//$linkedIn->debug = true;
 		
