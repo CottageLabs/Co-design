@@ -43,6 +43,7 @@ abstract class controller implements viewController {
 			if(get_class($u) == "user"){
 				$this->setObject("user", $u);
 			} else {
+			    //MW NEED TO FIX THIS!
 				throw new Exception("Deserialised user object does not match!");
 			}
 		} 

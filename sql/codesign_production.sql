@@ -17,6 +17,7 @@ USE `codesign_production` ;
 CREATE  TABLE IF NOT EXISTS `codesign_production`.`category` (
   `id` INT(11) NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(255) NOT NULL ,
+  `image` VARCHAR(100) NULL DEFAULT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
