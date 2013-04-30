@@ -12,8 +12,11 @@ class controller_futures_forum extends controller {
 
 		util::userBox($this->m_user, $this->superView());	
         
-        $this->bind("^edit", "futuresForumEdit");
-        $this->bind("^save", "futuresForumSave");
+        # These bindings should only work for Admins
+        if($this->m_user->getIsAdmin()) {   
+            $this->bind("^edit", "futuresForumEdit");
+            $this->bind("^save", "futuresForumSave");
+        }
 
 		$this->bindDefault('futuresForumIndex');
 	}
@@ -24,26 +27,30 @@ class controller_futures_forum extends controller {
 		$this->pageName = "- Futures Forum";
 		$this->viewport();
 
-        
-
-        // Add a link to edit this page (TODO - enable only for admins)
-        $this->superview()->replace("edit", "<div class=\"edit\"><a href=\"/futures_forum/edit\">edit</a></div>");
+        // Only admins see edit link
+        if($this->m_user->getIsAdmin()) {        
+            $this->superview()->replace("edit", "<div class=\"edit\"><a href=\"/futures_forum/edit\">edit</a></div>");
+        }
         
         // Put the appropriate style on the navigation bar link pointing to the current page
         $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
 	}
     
      protected function futuresForumSave(){
-        $content = ($_POST['content']!='') ? $_POST['content'] : ' ';
-        $allowed_tags = '<h1><h2><h3><h4><h5><h6><p><a><strong><em><ul><ol><li><img><code><pre><span><div><sup><sub><br><b><i>';
-        
-        file_put_contents(realpath( SYS_ASSETDIR . "views/futures_forum.html"), strip_tags($content, $allowed_tags));
-         
-        $this->redirect("/futures_forum/edit");
+        if($this->m_user->getIsAdmin()) {   
+            $content = ($_POST['content']!='') ? $_POST['content'] : ' ';
+            $allowed_tags = '<h1><h2><h3><h4><h5><h6><p><a><strong><em><ul><ol><li><img><code><pre><span><div><sup><sub><br><b><i>';
+            
+            file_put_contents(realpath( SYS_ASSETDIR . "views/futures_forum.html"), strip_tags($content, $allowed_tags));
+            $this->redirect("/futures_forum/edit");
+        } else {
+            //None-admins just see normal view
+            $this->redirect("/futures_forum");
+        }
      }
     
     protected function futuresForumEdit(){
-        
+        if($this->m_user->getIsAdmin()) {   
         $view = new view('futures_forum_edit');
         $view->replace("editor-error", ""); //<p class="alert alert-error"></p>
         $view->replace("editor-msg", ""); //<p class="alert alert-success"></p>
@@ -62,6 +69,10 @@ class controller_futures_forum extends controller {
         
         $this->setViewPort($view);
         $this->viewport();
+        } else {
+            //None-admins just see normal view
+            $this->redirect("/futures_forum");
+        }
     }
     
 	
