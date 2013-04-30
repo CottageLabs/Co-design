@@ -3,3 +3,11 @@ div.edit {
 	padding-top: 2em;
 	padding-bottom: 1em;
 }
+
+div#content h1 {
+	padding-top:0.5em;
+	padding-bottom:0.5em;
+}
+div#content p{
+	padding: 0.5em 0.5em 0.5em 0.5em;
+}
