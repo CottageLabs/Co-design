@@ -64,5 +64,5 @@ requests are processed by index.php:
     # don't rewrite existing directories
     RewriteCond %{REQUEST_FILENAME} !-d
 
-    # rewrite all other requests to index.php
-    RewriteRule ^(.*)$ /index.php?p=$1
+    # rewrite all other requests to index.php and include the query string
+    RewriteRule ^.*$ /index.php?p=%{REQUEST_URI}&%{QUERY_STRING}
