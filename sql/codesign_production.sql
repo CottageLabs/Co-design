@@ -37,6 +37,7 @@ CREATE  TABLE IF NOT EXISTS `codesign_production`.`user` (
   `email` VARCHAR(150) NULL DEFAULT NULL ,
   `bio` TEXT NULL DEFAULT NULL ,
   `admin` INT(1) NULL DEFAULT '0' ,
+  `forum` INT(1) NULL DEFAULT '0' ,
   `emailPublic` INT(1) NULL DEFAULT '0' ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB
