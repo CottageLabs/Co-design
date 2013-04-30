@@ -4,6 +4,7 @@ class category {
 
 	private $id = null;
 	private $name;
+    private $image;
 
 	const TYPE_ID = 1;
 	const TYPE_NAME = 2;
@@ -32,6 +33,7 @@ class category {
 		}
 
 		$this->name = $category[0]['name'];	
+        $this->image = $category[0]['image']; 
 	}
 	
 	public function getId(){
@@ -41,6 +43,10 @@ class category {
 	public function getName(){
 		return $this->name;
 	}
+    
+    public function getImage(){
+        return $this->image;
+    }
 
 }
 

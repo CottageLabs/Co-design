@@ -39,9 +39,12 @@ class resourceView extends view {
     
 	private function parse(){
 		$this->replace("title", $this->resource->getName() );
+        $this->replace("overview", $this->resource->getOverview() );
 		$this->replace("points", $this->resource->countVotes());
 		$this->replace("chats", $this->resource->getChatCount());
 		$this->replace("pitch", $this->resource->getOverview());
+        $this->replace("category-image", $this->resource->getCategory()->getImage());
+        $this->replace("category-name", $this->resource->getCategory()->getName());
 		$this->replace("image", $this->resource->getImage());
 		$this->replace("id", $this->resource->getId());
 		$this->replace("type", get_class($this->resource));
