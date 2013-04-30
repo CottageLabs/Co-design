@@ -74,7 +74,7 @@ class controller_shortlist extends controller {
 			$render->append($template->get());
 		}
 
-		$this->viewport()->replace("recentideas", $render);
+		$this->viewport()->replace("recentIdeas", $render);
 		
 		$side = new view('frag.filters');
 		$side->append(new view('ideaLinks'));
