@@ -74,7 +74,7 @@ class controller_auth extends controller {
 	}
 	
 	protected function linkedinlogin(){
-		$linkedIn = new linkedin('APIKEY', 'APISECRET', BASEURL . "auth/verify");
+		$linkedIn = new linkedin(LINKED_IN_APIKEY, LINKED_IN_APISECRET, BASEURL . "auth/verify");
 		
 		//$linkedIn->debug = true;
 		
@@ -93,13 +93,16 @@ class controller_auth extends controller {
 			switch($_GET['oauth_problem']){
 			
 				case "user_refused":
-					echo "Your username and password did not match for linkedin. <a href='/home'>Return to the homepage</a>";
+                    $this->redirect("/home?alert=" . urlencode('Your Linked-in account was not authenticated'));
+					//echo "Your username and password did not match for linkedin. <a href='/home'>Return to the homepage</a>";
 				break;
 				
 				default:
-					echo "Linkedin reported an OAuth error: " . $_GET['oauth_problem'];
+                    $this->redirect("/home?alert=" . urlencode('Linked-in reported an OAuth error:' . $_GET['oauth_problem'] ));
+					//echo "Linkedin reported an OAuth error: " . $_GET['oauth_problem'];
 				break;
 			}
+            return;
 		}
 
 		// Unserialize the object from session store.
