@@ -43,17 +43,20 @@ parameters, e.g.
     ?>
 
 Edit `app/system/core/conf.php` and set these variables to the full local path
-of this repository. (Keep the `/app/` suffix in the first variable):
+of this repository. Also register for a Linked-in API Key and store these in
+the appropriate variables. (Keep the `/app/` suffix in the first variable):
 
     define("SYSTEM_DIR", "/Users/martyn/development/co-design/app/");
-    ...
     define('SYS_ROOTDIR', "/Users/martyn/development/co-design/");
+    define('LINKED_IN_APIKEY', 'XXXXXXXXXXX');
+    define('LINKED_IN_APISECRET', 'XXXXXXXXXXXXXXXXXXX');
 
 
-Create a `.htaccess` file in the root application folder. The application
-should be served with Apache. Ensure the file permissions on the `.htaccess`
-file are appropriate. Configure the following rewrite rules, to ensure
-requests are processed by index.php:
+There is a `.htaccess` file provided with this application. It is required
+to ensure that HTTP requests are rewritten and redireted to the index.php
+file. As such, the application should be served with Apache. Ensure the
+file permissions on the `.htaccess` file are appropriate. If you create your
+own `.htaccess` file, the suggested rules are:
 
     # .htaccess file for co-design
     RewriteEngine on
