@@ -43,8 +43,12 @@ abstract class controller implements viewController {
 			if(get_class($u) == "user"){
 				$this->setObject("user", $u);
 			} else {
-			    //MW NEED TO FIX THIS!
-				throw new Exception("Deserialised user object does not match!");
+			    //throw new Exception("Deserialised user object does not match!");
+			    // Cannot throw an exception here, otherwise the user cannot access the site without emptying their cookies
+			    // Instead, the solution is to clear the user's session variables and start again.
+			    $u = new user();
+                $this->setObject(get_class($u), $u);
+                //$this->redirect("/home");
 			}
 		} 
 	}

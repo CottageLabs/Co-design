@@ -2,7 +2,7 @@ START TRANSACTION;
 USE `codesign_production`;
 
 /* USERS */
-INSERT INTO `codesign_production`.`user` (`id`, `name`, `username`) VALUES (1, 'admin', 'admin');
+INSERT INTO `codesign_production`.`user` (`id`, `name`, `username`, `hash`, `admin`) VALUES (1, 'Administrator', 'admin', 'b6f00066258b9bf4c4b59c9b771784a2', 1);
 
 
 /* CATEGORIES */
