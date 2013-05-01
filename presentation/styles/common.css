@@ -15,6 +15,10 @@
        font-family: Novecentowide-Medium; src: url('../fonts/novecentowide-medium.otf');
 }
 
+p {
+    line-height: 115%;
+}
+
 h1 {
 	font-family:Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
 	font-size:2.4em;
@@ -275,7 +279,7 @@ body {
 #footer {
   color: #002542;
   font-family:Verdana, Geneva, sans-serif;
-  font-size: 0.6875em;
+  font-size: 0.9em;
   text-align:center;
   height:30px;
   background-color:#dee6f1;
@@ -288,6 +292,9 @@ body {
   font-weight: normal;
 }
 
+#footer #copyright {
+    margin-top: 5px;
+}
 
 .actions {	
 	margin: 4px 0px 0 0;
@@ -487,3 +494,5 @@ ol.numbered-list {
 ol.numbered-list li {
     list-style-position: inside;
 }
+
+
