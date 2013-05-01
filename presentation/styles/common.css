@@ -479,3 +479,11 @@ div.co-design-alert p.ok {
 	margin-top: 20px;
 	text-align: right;	
 }
+
+ol.numbered-list {
+    list-style-type:decimal;
+}
+
+ol.numbered-list li {
+    list-style-position: inside;
+}
