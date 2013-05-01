@@ -10,7 +10,7 @@ class controller_ideas extends controller {
 	private $m_noRender = false;
 	private $m_owner = false;
 	
-	private $m_pageLimit = 9;
+	private $m_pageLimit = 12;
 	
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
@@ -65,7 +65,7 @@ class controller_ideas extends controller {
 		
 		$ideas = new collection(collection::TYPE_IDEA);
 		$ideas->setLimit($pageId * $this->m_pageLimit, $this->m_pageLimit);
-		$ideas->setSort("id", collection::SORT_DESC);
+		$ideas->setSort("title", collection::SORT_ASC);
 
 		// If the user is filtering add the search query to the SQL object.
 		if(!empty($search)){

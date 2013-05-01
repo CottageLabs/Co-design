@@ -8,7 +8,7 @@ class controller_shortlist extends controller {
 	private $m_currentProject;
 	private $m_projectIdea;
 	
-	private $m_pageLimit = 9;
+	private $m_pageLimit = 12;
 
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
@@ -53,7 +53,7 @@ class controller_shortlist extends controller {
 
 		$projects = new collection(collection::TYPE_SHORTLIST);
 		$projects->setLimit($pageId * $this->m_pageLimit, $this->m_pageLimit);
-		$projects->setSort("id", collection::SORT_DESC);
+		$projects->setSort("name", collection::SORT_ASC);
 
 		// If the user is filtering add the search query to the SQL object.
 		if(!empty($search)){
