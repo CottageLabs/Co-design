@@ -46,6 +46,13 @@ a {
 	color: #002542;
 	text-decoration: none;
 }
+
+h1 a {
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	text-decoration: inherit;
+}
 	
 body {
 	height:auto;
