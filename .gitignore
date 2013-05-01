@@ -30,9 +30,6 @@ app/system/core/conf.php
 
 deploy.sh.DO-NOT-STORE-IN-GITHUB
 
-# fonts
-*.otf
-
 design/2013-04-13/html/images/rugit.png
 
 design/2013-04-13/html/images/RLUK.png
