@@ -39,7 +39,7 @@ class controller_futures_forum extends controller {
      protected function futuresForumSave(){
         if($this->m_user->getIsAdmin()) {   
             $content = ($_POST['content']!='') ? $_POST['content'] : ' ';
-            $allowed_tags = '<h1><h2><h3><h4><h5><h6><p><a><strong><em><ul><ol><li><img><code><pre><span><div><sup><sub><br><b><i>';
+            $allowed_tags = '<h1><h2><h3><h4><h5><h6><p><a><strong><em><ul><ol><li><img><code><pre><span><div><sup><sub><br><hr><b><i><video><iframe><source>';
             
             file_put_contents(realpath( SYS_ASSETDIR . "views/futures_forum.html"), strip_tags($content, $allowed_tags));
             $this->redirect("/futures_forum/edit");
