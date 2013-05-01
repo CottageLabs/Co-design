@@ -204,16 +204,25 @@ body {
 	font-weight: bold;
 }
 
-#nav li:last-of-type {
+#nav span.user-actions {
+	float: right;
+}
+
+/* #nav li:last-of-type { */
+#nav li.sign-in-link {
 	padding: 3px;
 	background: #fff;
 	border-radius: 4px;
 	color: #002542;
-	float: right;
 }
 
-#nav li:last-of-type a {
+/* #nav li:last-of-type a { */
+#nav li.sign-in-link a {
 	color: #002542;
+}
+
+#nav li:last-of-type {
+    margin-left: 5px;
 }
 
 #nav li a {
