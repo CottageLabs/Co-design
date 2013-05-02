@@ -31,6 +31,11 @@ class controller_projects extends controller {
 		$this->bind("^page/(?P<id>[0-9]+)", "projectIndex");
 
 		$this->bindDefault('projectIndex');
+		
+        // Put the appropriate style on the navigation bar link pointing to the current page
+        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
+
+        $this->superview()->replace("additional-assets2", '<link type="text/css" rel="stylesheet" href="/presentation/styles/details_pages.css"/>');
 	}
 	
 	protected function projectIndex($args = NULL){
@@ -44,9 +49,6 @@ class controller_projects extends controller {
 
 		// Set page name
         $this->pageName = "- Projects";
-		
-        // Put the appropriate style on the navigation bar link pointing to the current page
-        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
 
         //search bar
         $filters = new view('frag.filters');
@@ -101,6 +103,8 @@ class controller_projects extends controller {
 		$this->m_currentProject = new project($id);
 		$this->m_projectIdea = $this->m_currentProject->getIdea();
 
+        $this->superview()->replace("additional-assets2", '<link type="text/css" rel="stylesheet" href="/presentation/styles/details_pages.css"/>');
+
 		if($this->m_currentProject->getHidden() && !$this->m_user->getIsAdmin()){
 			$this->setViewport(new view("denied"));
 			return;
@@ -108,11 +112,12 @@ class controller_projects extends controller {
 		
 		$this->pageName = "- " . $this->m_currentProject->getName();
 		
-		$this->setViewport(new view("projectOverview"));
+		$this->setViewport(new view("project_details"));
 		
 		$this->viewport()->replace("title", $this->m_currentProject->getName());
 		$this->viewport()->replace("image", $this->m_currentProject->getImage());
 		$this->viewport()->replace("description", $this->m_currentProject->getDescription());
+		$this->viewport()->replace("overview", $this->m_currentProject->getOverview());
 		
 		$this->viewport()->replace("website", $this->m_currentProject->getUrl());
 		$this->viewport()->replace("community-website", $this->m_currentProject->getCommunityUrl());
@@ -157,6 +162,7 @@ class controller_projects extends controller {
 		
 		// Get the category
 		$this->viewport()->replace('category', $this->m_currentProject->getCategory()->getName());
+		$this->viewport()->replace('category-image', $this->m_projectIdea->getCategory()->getImage());
 		$this->viewport()->replace('cat-id', $this->m_currentProject->getCategory()->getId());
 
 		// Deal with tags.

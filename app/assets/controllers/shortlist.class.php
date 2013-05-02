@@ -32,6 +32,9 @@ class controller_shortlist extends controller {
 		$this->bind("^page/(?P<id>[0-9]+)", "shortlistIndex");
 
 		$this->bindDefault('shortlistIndex');
+        
+        // Put the appropriate style on the navigation bar link pointing to the current page
+        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
 	}
 
 	protected function shortlistIndex($args = NULL){
@@ -44,9 +47,6 @@ class controller_shortlist extends controller {
 		$pageId--;
 
 		$this->pageName = "- Shortlist";
-
-        // Put the appropriate style on the navigation bar link pointing to the current page
-        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
 
         //search bar
         $filters = new view('frag.filters');
@@ -96,6 +96,8 @@ class controller_shortlist extends controller {
 		// Pull out the idea from the database.
 		$this->m_currentProject = new project($id);
 
+        $this->superview()->replace("additional-assets2", '<link type="text/css" rel="stylesheet" href="/presentation/styles/details_pages.css"/>');
+
 		$this->pageName = "- " . $this->m_currentProject->getName();
 		
 		if($this->m_currentProject->getHidden() && !$this->m_user->getIsAdmin()){
@@ -110,11 +112,12 @@ class controller_shortlist extends controller {
 		
 		$this->m_projectIdea = $this->m_currentProject->getIdea();
 		
-		$this->setViewport(new view("incubatedOverview"));
+		$this->setViewport(new view("shortlist_details"));
 		
 		$this->viewport()->replace("title", $this->m_currentProject->getName());
 		$this->viewport()->replace("image", $this->m_currentProject->getImage());
 		$this->viewport()->replace("description", $this->m_currentProject->getDescription());
+		$this->viewport()->replace("overview", $this->m_currentProject->getOverview());
 		$this->viewport()->replace("id", $id);
 		
 		$this->checkGithub();
@@ -128,7 +131,8 @@ class controller_shortlist extends controller {
 
 		// Get the category
 		$this->viewport()->replace('category', $this->m_currentProject->getCategory()->getName());
-		$this->viewport()->replace('cat-id', $this->m_projectIdea->getCategory()->getId());
+		$this->viewport()->replace('category-image', $this->m_projectIdea->getCategory()->getImage());
+		$this->viewport()->replace('cat-id', $this->m_currentProject->getCategory()->getId());
 		
 		if( $this->m_user->getEnrollment($this->m_currentProject, resource::MEMBERSHIP_ADMIN) ){
 			$buttons = array("Manage" => "{$this->m_currentProject->getId()}/admin");
@@ -139,9 +143,6 @@ class controller_shortlist extends controller {
 			$this->viewport()->replace("buttons", "" );
 		}
 		
-		// Get the category
-		$this->viewport()->replace('category', $this->m_currentProject->getCategory()->getName());
-		$this->viewport()->replace('cat-id', $this->m_currentProject->getCategory()->getId());
 		
 		// Deal with tags.
 		$tags = $this->m_currentProject->parseTags($this->m_currentProject);
@@ -171,6 +172,7 @@ class controller_shortlist extends controller {
 		}
 		
 		$c->replace('picture', $this->m_user->getPicture());
+       
 		
 		
 		$this->viewport()->replace('comment-block', $c);

@@ -114,6 +114,7 @@ abstract class controller implements viewController {
 		$this->superview->replace('include-url', SYS_INCLUDEURL);
 		$this->superview->replace('base-url', BASEURL);
 		$this->superview->replace('additional-assets', "");
+		$this->superview->replace('additional-assets2', "");
 		$this->superview->replace('version', REALISE_VERSION);
 		$this->superview->replace('dev', (DEV) ? "DEV" : "");
 		$this->superview->replace('pagename', $this->pageName);
