@@ -29,17 +29,25 @@
                 PROJECT</div>-->
             <!--<div class="project-icon"><img src="{category-image}" alt="Category {category} image" /></div>-->
             <h1>{title}</h1>
-            <h2>{overview}</h2>
         </div>
             <!--<div class="actions"><div class="action">messages (0)</div><div class="action">interest (0)</div><div class="action">associated (0)</div></div>-->
+            
+                     
+                  
+            <div class="project-description">
+                <div class="heading"><h1>overview</h1></div>
+                <h2>{overview}</h2>
+            </div>      
             <div class="project-description">
                 <div class="heading"><h1>description</h1></div>
                 <h2>{description}</h2>
             </div>
-        <div class="category"><a href="/category/{cat-id}">{category}</a></div>
+        <div class="category">
+        	<a href="/category/{cat-id}">{category}</a>
+    	</div>
         <div class="comments">
-        <div class="heading"><h1>Comments</h1></div>
-        {comment-block}
+        	<div class="heading"><h1>Comments</h1></div>
+        	{comment-block}
         </div>
         
         </div>
