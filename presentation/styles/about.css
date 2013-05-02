@@ -1,13 +1,57 @@
-h2 {
-    font-size:1.5em;
-    color: #FF6E19;
-    line-height:170%;
+.context h1 {
+	font-size: 1.9375em; /*31px 16px */
 }
 
-h3 {
-    font-family:Verdana, Geneva, sans-serif;
-    font-size:1.2em;
-    color: #002542;
-    font-style:italic;
-    line-height:170%;
+.text-heading h1 {
+	font-size:1.25em;
+	margin: 30px -56px 12px 0;
+	height: 30px;
+	background: #f5f6f7;
+	padding: 8px 0 0 25px;
+	
 }
+.text-paragraph a {
+	text-decoration:none;
+	font-style:italic;
+	color: #002542;
+	font-weight:100;
+}
+
+.text-paragraph a:hover {
+  	color:#dee6f1;
+}
+
+.text-paragraph,
+.listed {
+	padding: 0 0 12px 25px;
+	line-height:140%;
+}
+
+.text-paragraph ul {
+	padding-top:5px;
+}
+
+.text-paragraph li {
+	font-weight:bold;
+	color:#002542;
+}
+
+.listed h2 {
+	font-size: 1em;
+	color: #f37c22;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	line-height: 100%;
+	text-transform: uppercase;
+
+}
+
+.listed ul {
+	padding-top:5px;
+}
+
+.listed li{
+	text-transform: uppercase;
+	font-size:0.875em;
+}
+	
