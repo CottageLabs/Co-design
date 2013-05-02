@@ -3,19 +3,32 @@
 class controller_admin extends controller {
 
     public $controller_name = "admin";
-
 	private $m_user;
-	private $m_noRender = false;
+	
 
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
+        
+        util::userBox($this->m_user, $this->superView());   
 		
-		$this->bind("(?P<name>ideas)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
-		$this->bind("(?P<name>projects)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
-		
-		$this->bindDefault('defaultHandler');
+		//$this->bind("(?P<name>ideas)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
+		//$this->bind("(?P<name>projects)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
+		 
+		 # These bindings should only work for Admins
+        if($this->m_user->getIsAdmin()) {   
+            $this->bindDefault('userManagement');
+        } else {
+            $this->redirect("/home?alert=" . urlencode('Please login as an authorised user to view the Admin page'));
+        }
 	}
+    
+    protected function userManagement(){
+        $this->setViewport(new view("users"));
+        
+        $this->pageName = "- Users";
+    }
 	
+    /*
 	protected function hide($args){
 		$this->m_noRender = true;
 	
@@ -49,6 +62,7 @@ class controller_admin extends controller {
 		
 		$this->setViewport(new view('denied'));
 	}
+    */
 
 }
 
