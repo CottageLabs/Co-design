@@ -18,8 +18,13 @@ class controller_futures_forum extends controller {
             $this->bind("^save", "futuresForumSave");
         }
 
-		$this->bindDefault('futuresForumIndex');
-	}
+        //only forum users and admins can see this page
+        if ($this->m_user->getIsForum() || $this->m_user->getIsAdmin()) {
+            $this->bindDefault('futuresForumIndex');
+        } else {
+            $this->redirect("/home?alert=" . urlencode('Please login as an authorised user to view the Futures Forum'));   
+        }
+    }
 	
 	
 	protected function futuresForumIndex(){
