@@ -129,6 +129,15 @@ abstract class controller implements viewController {
             $this->superview->replace('futures_forum', "");    
         }
         
+        if ($this->objects("user")->getIsAdmin()) {
+            if ($this->controller_name == "admin"){
+                $this->superview->replace('admin', "<li><span class=\"menu-separator\">/</span><a href='/admin' class=\"current\">ADMIN</a></li>");
+            } else {
+                $this->superview->replace('admin', "<li><span class=\"menu-separator\">/</span><a href='/admin'>ADMIN</a></li>");
+            }    
+        } else {
+            $this->superview->replace('admin', "");    
+        }
         
 
 		echo $this->superview->get();		
