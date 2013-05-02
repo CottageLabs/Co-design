@@ -20,6 +20,14 @@
 	font-size: 0.875em;
 }
 
+.column a.more-info {
+	color:#FF6E19;
+}
+
+.column a.more-info:hover {
+	color:#f3904c;
+}
+
 .right {
 	width:290px;
 	float:right;
