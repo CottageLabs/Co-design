@@ -541,7 +541,7 @@ a.more.button:hover {
 
 
 /* extra styles added by Cottage Labs */
-/*
+
 #user_login table, #user_login td, #user_registration table, #user_registration td {
 	margin: 5px;
 	padding: 5px;
@@ -563,6 +563,13 @@ div.co-design-alert p.ok {
 	text-align: right;	
 }
 
+span.spacer {
+	margin-left:5px;
+	margin-right:5px;
+	color:#aaa;
+}
+
+/*
 ol.numbered-list {
     list-style-type:decimal;
 }
