@@ -113,6 +113,8 @@ class controller_ideas extends controller {
 		
 		// Pull out the idea from the database.
 		$this->m_currentIdea = new idea($id);
+
+        $this->superview()->replace("additional-assets", '<link type="text/css" rel="stylesheet" href="/presentation/styles/details_pages.css"/>');
 		
 		if($this->m_currentIdea->getHidden() && !$this->m_user->getIsAdmin()){
 			$this->setViewport(new view("denied"));
