@@ -11,40 +11,73 @@
 		</div>
 
 		<div class="column column-main">
+			
+			<form method="post" action="/admin/save">
             
-            <div class="text-heading">
-            	<h1>Admin Users</h1>
-        	</div>
-            <div class="text-paragraph">
-            	<p>Admin users have full rights in the system and can edit the Futures Forum page</p>
-        	    <ul class="numbered-list about-list">
-		            <li>User1</li>
-		            <li>User2</li>
-		        </ul>
-			</div>
-			
-            <div class="text-heading">
-            	<h1>Forum Users</h1>
-        	</div>
-            <div class="text-paragraph">
-            	<p>Forum users can view the Futures Forum page</p>
-		        <ul class="numbered-list about-list">
-		            <li>User1</li>
-		            <li>User2</li>
-		        </ul>
-			</div>
-
- 			<div class="text-heading">
- 				<h1>General Users</h1>
-			</div>
-            <div class="text-paragraph">
-            	<p>General users can post comments</p>
-            	<ul class="numbered-list about-list">
-		            <li>User1</li>
-		            <li>User2</li>
-		        </ul>
-			</div>
-			
+		        <div class="text-heading">
+		        	<h1>Admin Users</h1>
+		    	</div>
+		        <div class="text-paragraph">
+		        	<p>Admin users have full rights in the system and can edit the Futures Forum page</p>
+		        	<table class="user-table">
+		        		<thead>
+		        			<tr>
+		        				<td>Username</td>
+		        				<td>Name</td>
+		        				<td>Forum User</td>
+		        				<td>Admin User</td>
+		        				<td></td>
+		        			</tr>
+		        		</thead>
+		        		<tbody>
+		        			{users_admin}	
+		        		</tbody>
+		        	</table>
+				</div>
+				
+		        <div class="text-heading">
+		        	<h1>Forum Users</h1>
+		    	</div>
+		        <div class="text-paragraph">
+		        	<p>Forum users can view the Futures Forum page</p>
+			        <table class="user-table">
+		        		<thead>
+		        			<tr>
+		        				<td>Username</td>
+		        				<td>Name</td>
+		        				<td>Forum User</td>
+		        				<td>Admin User</td>
+		        				<td></td>
+		        			</tr>
+		        		</thead>
+		        		<tbody>
+		        			{users_forum}	
+		        		</tbody>
+		        	</table>
+				</div>
+		
+				<div class="text-heading">
+					<h1>General Users</h1>
+				</div>
+		        <div class="text-paragraph">
+		        	<p>General users can post comments</p>
+		        	<table class="user-table">
+		        		<thead>
+		        			<tr>
+		        				<td>Username</td>
+		        				<td>Name</td>
+		        				<td>Forum User</td>
+		        				<td>Admin User</td>
+		        				<td></td>
+		        			</tr>
+		        		</thead>
+		        		<tbody>
+		        			{users_general}	
+		        		</tbody>
+		        	</table>
+				</div>
+				<input type="submit" value="Save" class="submit" />
+			</form>
 	    </div>
 	</div>    
 </div>

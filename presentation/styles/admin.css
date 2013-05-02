@@ -54,4 +54,29 @@
 	text-transform: uppercase;
 	font-size:0.875em;
 }
-	
+
+table.user-table {
+	border: solid #aaa 1px;
+	margin-top: 10px;
+}	
+
+table.user-table thead{
+	font-size: 1em;
+	color: #f37c22;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	line-height: 100%;
+	text-transform: uppercase;
+}	
+
+table.user-table td{
+	margin: 5px 5px 5px 5px;
+	padding: 5px 20px 5px 5px;
+}
+
+input.submit {
+	padding: 1px;
+	margin: 0 0 0 5px;
+	border: 1px solid #002542;
+	border-radius: 4px;
+}

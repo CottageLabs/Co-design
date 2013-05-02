@@ -26,43 +26,46 @@ class controller_admin extends controller {
         $this->setViewport(new view("users"));
         
         $this->pageName = "- Users";
+        
+        
+        $users_admin = new collection(collection::TYPE_USER);
+        $users_admin->setSort("name", collection::SORT_ASC);
+        $users_admin->setQuery(array("", "admin", "=", 1));
+        $users_admin_view = new view();        
+        $users_admin_array = $users_admin->get();
+        foreach($users_admin_array as $user) {
+            $template = new userView($user);
+            $users_admin_view->append( $template->get() );
+        }
+        $this->viewport()->replace("users_admin", $users_admin_view);
+        
+        
+        
+        $users_forum = new collection(collection::TYPE_USER);
+        $users_forum->setSort("name", collection::SORT_ASC);
+        $users_forum->setQuery(array("", "forum", "=", 1));
+        $users_forum->setQuery(array("AND", "admin", "=", 0));
+        $users_forum_view = new view();        
+        $users_forum_array = $users_forum->get();
+        foreach($users_forum_array as $user) {
+            $template = new userView($user);
+            $users_forum_view->append( $template->get() );
+        }
+        $this->viewport()->replace("users_forum", $users_forum_view);
+        
+        
+        $users_general = new collection(collection::TYPE_USER);
+        $users_general->setSort("name", collection::SORT_ASC);
+        $users_general->setQuery(array("", "forum", "=", 0));
+        $users_general->setQuery(array("AND", "admin", "=", 0));
+        $users_general_view = new view();        
+        $users_general_array = $users_general->get();
+        foreach($users_general_array as $user) {
+            $template = new userView($user);
+            $users_general_view->append( $template->get() );
+        }
+        $this->viewport()->replace("users_general", $users_general_view);
     }
-	
-    /*
-	protected function hide($args){
-		$this->m_noRender = true;
-	
-		if($this->m_user->getId() == null) throw new Exception("You do not have access to this area.");
-		
-		$object = new $args['name']($args['id']);
-		if($_POST['action'] == "enable"){
-			$object->setHidden(FALSE);
-		} else {
-			$object->setHidden(TRUE);
-		}
-		
-		$object->commit();
-		
-		echo json_encode(array("status" => 200));
-	}
-
-	protected function noRender(){
-		return $this->m_noRender;
-	}
-	
-	protected function defaultHandler(){
-		$this->m_noRender = false;
-		
-		// Select the tab	
-		//util::selectTab($this->superview(), "project");	
-
-		util::userBox($this->m_user, $this->superView());		
-		
-		$this->superView()->replace('sideContent', '');
-		
-		$this->setViewport(new view('denied'));
-	}
-    */
 
 }
 
