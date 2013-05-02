@@ -119,6 +119,17 @@ abstract class controller implements viewController {
 		$this->superview->replace('pagename', $this->pageName);
         $this->superview->replace('controller-style', $this->controller_name);
         $this->superview->replace('edit', "");
+        if ($this->objects("user")->getIsForum()) {
+            if ($this->controller_name == "futures_forum"){
+                $this->superview->replace('futures_forum', "<li><span class=\"menu-separator\">/</span><a href='/futures_forum' class=\"current\">FUTURES FORUM</a></li>");
+            } else {
+                $this->superview->replace('futures_forum', "<li><span class=\"menu-separator\">/</span><a href='/futures_forum'>FUTURES FORUM</a></li>");
+            }    
+        } else {
+            $this->superview->replace('futures_forum', "");    
+        }
+        
+        
 
 		echo $this->superview->get();		
 	}

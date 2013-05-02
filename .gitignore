@@ -30,9 +30,6 @@ app/system/core/conf.php
 
 deploy.sh.DO-NOT-STORE-IN-GITHUB
 
-# fonts
-*.otf
-
 design/2013-04-13/html/images/rugit.png
 
 design/2013-04-13/html/images/RLUK.png
@@ -49,3 +46,7 @@ presentation/images/logos/ucisa.png
 presentation/images/logos/RLUK.png
 
 app/system/core/conf.php
+
+design/2013-04-28/fonts/
+design/2013-05-01/fonts/
+

@@ -12,6 +12,7 @@ class user extends dbo {
 	private $username = "";
 	private $hash = "";
 	private $admin = 0;
+    private $forum = 0;
 	private $groups = array();
 	
 	private $mentorImage = "<img src='/presentation/images/star.png' class='tip mentor' title='This user is a mentor' style='float:right'>";
@@ -88,6 +89,7 @@ class user extends dbo {
 			$this->username = $p[0]['username'];
 			$this->hash = $p[0]['hash'];
 			$this->admin = $p[0]['admin'];
+            $this->forum = $p[0]['forum'];
 			$this->emailPublic = (int)$p[0]['emailPublic'];
 			$this->bio = $p[0]['bio'];
 			
@@ -244,6 +246,11 @@ class user extends dbo {
 	public function getIsAdmin(){
 		return (BOOL) $this->admin;
 	}
+    
+    public function getIsForum(){
+        return (BOOL) $this->forum;
+    }
+    
 	
 	public function setHash($h){
 		$this->hash = $h;

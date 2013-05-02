@@ -4,6 +4,7 @@ USE `codesign_production`;
 /* USERS */
 INSERT INTO `codesign_production`.`user` (`id`, `name`, `username`, `hash`, `admin`, `forum`) VALUES (1, 'Administrator', 'admin', 'b6f00066258b9bf4c4b59c9b771784a2', 1, 1);
 INSERT INTO `codesign_production`.`user` (`id`, `name`, `username`, `hash`, `admin`, `forum`) VALUES (2, 'Forum User', 'forum', '189f8ff214f1ef6c73f75c3173e7787b', 0, 1);
+INSERT INTO `codesign_production`.`user` (`id`, `name`, `username`, `hash`, `admin`, `forum`) VALUES (2, 'Non-Forum User', 'nonforum', 'a25f907a64b9682341d00b59395a171f', 0, 0);
 
 
 /* CATEGORIES */

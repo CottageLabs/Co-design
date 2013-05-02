@@ -1,0 +1,20 @@
+.shortlist .tile {
+	background-color: #25465f;
+	color: #FF6E19;
+	box-shadow: 0 2px 0 #072541;
+}
+
+.shortlist .tile .description {
+	color: #fff;
+}
+
+.shortlist a.button.more {
+	background-color: #072541;
+	color: #fff;
+	box-shadow: 0 2px 0 #000;
+}
+
+.shortlist a.button.more:hover {
+	background-color: #034d84;
+}
+

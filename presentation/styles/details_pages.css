@@ -1,0 +1,224 @@
+/* USER INFO */
+
+.user-info  {
+	text-align: left;
+	font-weight:bold;
+	padding-bottom: 23px;
+
+}
+	
+.user-info .suggested-by {
+	font-family:Verdana, Geneva, sans-serif;
+	font-size: 0.75em;
+	color: #002542;
+	margin: 25px 0	4px 0;
+}
+
+.user-info h2 {
+	font-size:1.0625em;
+	color: #FF6E19;
+	margin-bottom:15px;
+}
+
+/* PROJECT INFO */
+.project-info {
+	text-align:left;
+	background-color: #dee6f1;
+	color: #f37c22;
+	border-radius: 3px;
+	width:100%;
+	height:128px;
+	margin: 25px 0 5px 0;
+	box-shadow: 0 4px 0 #96a5b1;
+}
+
+.project-info h1 {
+	padding: 10px 10px 0 10px;
+	font-size: 1.5em;
+	font-family: Novecentowide-Medium, Verdana, Geneva, sans-serif;
+	color: #f37c22;
+}
+
+.project-info h2 {
+	padding: 10px 10px 0 10px;
+	font-size: 1.2em;
+	font-family: Novecentowide-Medium, Verdana, Geneva, sans-serif;
+	color: #002542;
+}
+
+.heading h1 {
+	font-size:1.125em;
+	color: #002542;
+	font-family:Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
+	padding: 25px 0 5px 0;
+	text-align:left;
+}
+
+.project-description {
+	text-align:left;
+}
+
+.category {
+	background-color:#dee4ee;
+	border-radius: 2px;
+	color: #002542;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 0.8125em;
+	padding: 3px 10px 4px 10px;
+	margin-top: 10px;
+	display: inline-block;
+}
+.project-info .project-listed-icon {
+	margin: 10px 0 0 -17px;
+	display:inline-block;
+	width: 200px;
+}
+.project-info .project-icon {
+	margin: 10px 10px 0 0;
+	display:inline-block;
+	width: 75px;
+	float:right
+}
+
+
+.project-info-wrapper .actions {
+	margin-bottom: 35px;
+}
+
+.project-info-wrapper .actions .action {
+	background: #002542;
+	box-shadow: 0 2px 0px #000;
+	font-size:1em;
+	width:20%;
+	float:right;
+	margin:3px;
+	padding: 6px 0 4px 0;
+}
+
+/* COMMENTS */
+
+.comment-box{
+	background-color:#dee4ee;
+	border-radius: 2px;
+	padding: 10px;
+	text-align:left;
+	margin: 10px 0 20px 0;
+}
+.comment-box:before {
+	position: absolute;
+	display: inline-block;
+	border-right: 8px solid transparent;
+	border-bottom: 6px solid #dee4ee;
+	border-left: 8px solid transparent;
+	content: '';
+	margin: -16px 0 0 10px;
+}
+	
+.comment-message {
+	color:#222;
+	font-size: 0.8125em;
+	padding: 12px 10px 0 0;
+	display: inline-block;
+	width: 85%;
+	vertical-align: top;
+}
+
+.comment-photo {
+	display:inline-block;
+	padding: 0 10px;
+	width:60px;
+
+}
+
+.comment-details {
+	color: #FF6E19;
+	font-size: 0.625em;
+	font-style: italic;
+	position: absolute;
+	display:inline-block;
+}
+
+
+/* ACTIONS */
+
+.tile-wrapper .actions .action{	
+	margin: 0 5px 0 0;
+	font-size: 1em;
+	width:auto;
+	float:right;
+}
+
+/* PROJECT IDEA COLOURS */
+.idea-project .context-links {
+	border-top: 1px #002542 solid;
+	padding: 15px 0 0 0;
+	margin:15px 25px 0 0;
+}
+
+.idea-project .context-links li a{
+	font-family: Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
+	font-size:1em;
+}
+.idea-project .context-links li a:hover{
+	color: #dee6f1;
+}
+
+.idea-project .actions .action {
+	background: #f37c22;
+	box-shadow: 0 2px 0px #c8622d;
+}
+
+.idea-project .actions .action:hover {
+	background-color: #f3904c;
+}
+
+/* PROJECT SHORTLIST COLOURS */
+.project-shortlist .project-info {
+	background-color: #25465f;
+	color: #FF6E19;
+	box-shadow: 0 4px 0 #072541;
+}
+
+.project-shortlist .actions .action {
+	background: #f37c22;
+	box-shadow: 0 2px 0px #c8622d;
+}
+.project-shortlist .actions .action:hover {
+	background: #f3904c;
+}
+
+/* PROJECT PROGRESS INFO */
+.project-in-progress .project-info {
+	background-color:#f3904c;
+	color:#002542;
+	
+}
+
+.project-in-progress .project-info h1 {
+	color: #002542;
+}
+
+ul.progress {
+    margin: 0;
+    padding: 0;
+    list-style-type none;
+}
+
+ul.progress li {
+    display: inline-block;
+    text-align: center;
+    line-height: 3em;
+}
+ul.progress[data-progress-steps="2"] li { width: 49%; }
+ul.progress[data-progress-steps="3"] li { width: 33%; }
+ul.progress[data-progress-steps="4"] li { width: 24%; }
+ul.progress[data-progress-steps="5"] li { width: 19%;}
+
+ul.progress li.progress-done {
+    color: black;
+    border-bottom: 4px solid yellowgreen;
+}
+ul.progress li.progress-todo {
+    color: silver; 
+    border-bottom: 4px solid silver;
+}

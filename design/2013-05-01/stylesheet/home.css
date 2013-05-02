@@ -1,0 +1,49 @@
+.codesign-info {
+	text-align: center;
+	padding: 40px 163px 20px 163px;
+	border-bottom: 1px solid #002542;
+	margin: 0 0 20px 0;
+}
+
+.codesign-info h1{
+	padding-bottom:10px;
+}
+
+.columns.homepage-content .column {
+	padding-bottom: 100px;
+}
+
+.column .thin {
+	font-family:Novecentowide-Light, Verdana, Geneva, sans-serif;
+}
+.column .more-info {
+	font-size: 0.875em;
+}
+
+.column a.more-info {
+	color:#FF6E19;
+}
+
+.column a.more-info:hover {
+	color:#f3904c;
+}
+
+.right {
+	width:290px;
+	float:right;
+}
+
+.left {
+	width: 290px;
+}
+
+.middle {
+	width:267px;
+}
+
+.icon-box {
+	width:85px;
+	height:74px;
+	display:inline-block;
+	padding: 10px 0 10px 0;
+}

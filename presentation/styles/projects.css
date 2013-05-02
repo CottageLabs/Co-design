@@ -1,142 +1,39 @@
-/* USER INFO */
-
-.user-info  {
-	text-align: left;
-	font-weight:bold;
-
+.projects .tile {
+	background-color: #f3904c;
+	box-shadow: 0 2px 0 #f37c22;
 }
+
+.projects .tile .title {
+	color: #002542;
+}
+
+.projects .tile .description {
+	color: #fff;
+}
+
+.projects .actions .action {
+	background-color: #072541;
+	color: #fff;
+	box-shadow: 0 2px 0 #000;
+}
+
+.projects .actions .action:hover{
+	background-color: #034d84;
 	
-.user-info .suggested-by {
-	font-family:Verdana, Geneva, sans-serif;
-	font-size: 0.75em;
+}
+
+.projects a.button.more {
+	background-color: #f37c22;
+	color: #fff;
+	box-shadow: 0 2px 0 #c7612d;
+}
+.projects a.button.more:hover {
+	background-color: #f3904c;
+}
+
+
+/* Extra Cottage labs styles */
+
+.projects div.tile  div.title  a {
 	color: #002542;
-	margin: 25px 0	4px 0;
-}
-
-.user-info h2 {
-	font-size:1.0625em;
-	color: #FF6E19;
-	margin-bottom:15px;
-}
-
-/* PROJECT INFO */
-.project-info {
-	text-align:left;
-	display:inline-block;	
-	background-color:#25465f;
-	color:#FF6E19;
-	border-radius: 3px;
-	width:621px;
-	height:128px;
-	margin: 25px 0 5px 0;
-	box-shadow: 0 4px 0 #072541;
-}
-
-.project-info h1 {
-	color:#FF6E19;
-	padding: 55px 10px 0 10px;
-	font-size: 1.5em;
-	font-family: Novecentowide-Medium, Verdana, Geneva, sans-serif;
-}
-
-
-.heading h1 {
-	font-size:1.125em;
-	color: #002542;
-	font-family:Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
-	padding: 25px 0 5px 0;
-	text-align:left;
-}
-
-.project-description {
-	width:621px;
-	text-align:left;
-}
-
-.category {
-	background-color:#dee4ee;
-	border-radius: 2px;
-	color: #002542;
-	font-family: Verdana, Geneva, sans-serif;
-	font-size: 0.8125em;
-	padding: 3px 10px 4px 10px;
-	margin-top: 10px;
-}
-.project-info .project-listed-icon {
-	margin: 10px 0 0 -17px;
-	display:inline-block;
-	width: 200px;
-}
-.project-info .project-icon {
-	margin: 10px 10px 0 0;
-	display:inline-block;
-	width: 75px;
-	float:right
-}
-
-/* COMMENTS */
-
-.comment-box{
-	background-color:#dee4ee;
-	border-radius: 2px;
-	padding: 10px 0 10px 0;
-	text-align:left;
-	margin-top:10px;
-}
-.comment-box:before {
-	position: absolute;
-	display: inline-block;
-	border-right: 8px solid transparent;
-	border-bottom: 6px solid #dee4ee;
-	border-left: 8px solid transparent;
-	content: '';
-	margin: -16px 0 0 10px;
-}
-	
-.comment-box h2{
-	color:#222;
-	font-size: 0.8125em;
-	padding-left:80px;
-
-}
-
-.comment-photo {
-	display:inline-block;
-	padding: 10px;
-	width:60px;
-
-}
-
-.comment-details h2{
-	color: #FF6E19;
-	font-size: 0.625em;
-	font-style: italic;
-
-}
-.comment-details {
-	display:inline-block;
-}
-
-
-/* ACTIONS */
-
-.tile-wrapper .actions .action{	
-	margin: 0 5px 0 0;
-	font-size: 1em;
-	width:auto;
-	float:right;
-}
-
-.idea-project .context-links {
-	border-top: 1px #002542 solid;
-	padding: 15px 0 0 0;
-	margin:15px 25px 0 0;
-}
-
-.idea-project .context-links li a{
-	font-family: Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
-	font-size:1em;
-}
-.idea-project .context-links li a:hover{
-	color: #dee6f1;
 }

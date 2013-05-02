@@ -20,6 +20,14 @@
 	font-size: 0.875em;
 }
 
+.column a.more-info {
+	color:#FF6E19;
+}
+
+.column a.more-info:hover {
+	color:#f3904c;
+}
+
 .right {
 	width:290px;
 	float:right;
@@ -38,4 +46,12 @@
 	height:74px;
 	display:inline-block;
 	padding: 10px 0 10px 0;
+}
+
+/* extra Cottage Labs style to ensure hyperlinks are rendered with h1 styles */
+h1 a {
+  font-family: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-decoration: inherit;
 }

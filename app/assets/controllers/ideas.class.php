@@ -23,13 +23,13 @@ class controller_ideas extends controller {
 		$this->bind("^new/add", "addIdea"); // Add a new idea (process)
 		
 		$this->bind("^[0-9]+$", "renderIdea"); // View a specific idea.
-		$this->bind("^[0-9]+/vote$", "vote"); // DATA - vote on an idea
+		//$this->bind("^[0-9]+/vote$", "vote"); // DATA - vote on an idea
 		
 		$this->bind("^(?P<id>[0-9]+)/comment$", "comment"); // Comment on an idea
 		$this->bind("^(?P<id>[0-9]+)/comment/(?P<comment_id>[0-9]+)/delete", "deleteComment"); // Delete comment
 		
-		$this->bind("^(?P<id>[0-9]+)/incubate$", "incubateIdea"); // Display the incubate form.
-		$this->bind("^(?P<id>[0-9]+)/incubate/confirm", "processIncubation"); // Make a new project with this info set to incubated.
+		//$this->bind("^(?P<id>[0-9]+)/incubate$", "incubateIdea"); // Display the incubate form.
+		//$this->bind("^(?P<id>[0-9]+)/incubate/confirm", "processIncubation"); // Make a new project with this info set to incubated.
 		
 		$this->bind("^(?P<id>[0-9]+)/admin$", "ideaAdmin"); // Administer an idea.
 		$this->bind("^(?P<id>[0-9]+)/admin/update$", "adminSave"); // Administer an idea.
@@ -38,6 +38,10 @@ class controller_ideas extends controller {
 		$this->bind("^page/(?P<id>[0-9]+)", "renderIdeasIndex");
 
 		$this->bindDefault('renderIdeasIndex');
+
+        // Put the appropriate style on the navigation bar link pointing to the current page
+        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
+
 	}
 	
 	protected function renderideasIndex($args = NULL){
@@ -51,14 +55,10 @@ class controller_ideas extends controller {
 
 		$this->pageName = "- Ideas";
 
-        // Put the appropriate style on the navigation bar link pointing to the current page
-        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
-
-		$side = new view('frag.filters');
-		$side->append(new view('ideaLinks'));
-		$side->append(new view('frag.sideInfo'));
-		$side->replace("categories", util::getCategories());
-		$this->superview()->replace("sideContent", $side);
+        //search bar
+		$filters = new view('frag.filters');
+		$filters->replace("categories", util::getCategories());
+        $this->viewport()->replace("filters", $filters);
 
 		$search = isset($_GET['search']) ? $_GET['search'] : "";
 		$category = isset($_GET['category']) ? (int)$_GET['category'] : 0;
@@ -69,15 +69,13 @@ class controller_ideas extends controller {
 
 		// If the user is filtering add the search query to the SQL object.
 		if(!empty($search)){
-			$ideas->setQuery(array("", "title", "LIKE", "%" . $search . "%"));
-			$operator = "AND";
-		} else {
-			$operator = "";
+			$ideas->setQuery(array("AND", "title", "LIKE", "%" . $search . "%"));
 		}
 		
-		if($category != 0) $ideas->setQuery(array($operator, "category_id", "=", $category));
+		if($category != 0) $ideas->setQuery(array("AND", "category_id", "=", $category));
 		
-		if(!$this->m_user->getIsAdmin()) $ideas->setQuery(array($operator, "hidden", "=", 0));
+		if(!$this->m_user->getIsAdmin()) $ideas->setQuery(array("AND", "hidden", "=", 0));
+		
 		
 		$o = new view();
 		
@@ -98,6 +96,7 @@ class controller_ideas extends controller {
 		}
 
 		$this->viewport()->replace("recentIdeas", $o);
+        
 	
 		if($this->m_user->getIsAdmin()) $this->superview()->replace("additional-assets", util::newScript("/presentation/scripts/admin.js"));
 		
@@ -114,6 +113,8 @@ class controller_ideas extends controller {
 		
 		// Pull out the idea from the database.
 		$this->m_currentIdea = new idea($id);
+
+        $this->superview()->replace("additional-assets", '<link type="text/css" rel="stylesheet" href="/presentation/styles/details_pages.css"/>');
 		
 		if($this->m_currentIdea->getHidden() && !$this->m_user->getIsAdmin()){
 			$this->setViewport(new view("denied"));
@@ -122,12 +123,12 @@ class controller_ideas extends controller {
 		
 		if(isset($_SESSION['createdNewIdea']) && $_SESSION['createdNewIdea'] == true){
 			$new = new view('frag.createdNew');
-			$new->append(new view('ideaOverview'));
+			$new->append(new view('idea_details'));
 			$this->setViewport($new);
 			
 			unset($_SESSION['createdNewIdea']);
 		} else {
-			$this->setViewport(new view("ideaOverview"));
+			$this->setViewport(new view("idea_details"));
 		}
 		
 		$this->pageName = "- " . $this->m_currentIdea->getName();
@@ -180,6 +181,8 @@ class controller_ideas extends controller {
 		} catch(Exception $e) {
 			$this->viewport()->replace("linked-projects", "");
 		}
+
+		$this->viewport()->replace('overview', $this->m_currentIdea->getOverview());
 		
 		// Deal with tags.
 		$tags = $this->m_currentIdea->parseTags($this->m_currentIdea);
@@ -196,13 +199,15 @@ class controller_ideas extends controller {
 			$this->m_owner = true;
 			$this->viewport()->replace('owner', "you");
 		} else {
-			$this->viewport()->replace('owner', $this->m_ideaOwner->getHTMLName());		
+			$this->viewport()->replace('owner', $this->m_ideaOwner->getHTMLName());
+			$this->viewport()->replace('owner_text_name', $this->m_ideaOwner->getName());
 		}
 
 		$this->viewport()->replace('ownerPic', $this->m_ideaOwner->getPicture());
 
 		// Get the category
 		$this->viewport()->replace('category', $this->m_currentIdea->getCategory()->getName());
+		$this->viewport()->replace('category-image', $this->m_currentIdea->getCategory()->getImage());
 		$this->viewport()->replace('cat-id', $this->m_currentIdea->getCategory()->getId());
 
 		$button = new view();
@@ -260,10 +265,12 @@ class controller_ideas extends controller {
 	}
 	
 	protected function comment($args){
+        
 		$this->m_noRender = true;
 		
 		$id = $args['id'];
-		
+        
+        
 		try {
 			if($this->m_user->getId() != null) {
 				$comment = new comment();
@@ -277,18 +284,6 @@ class controller_ideas extends controller {
 				
 				$html = $comment->get($this->m_user);
 				
-				// Fire off a notification
-				
-				$notification = new notification();
-				$action = array(
-					"user" => $this->m_user->getName(),
-					"body" => $_POST['body'],
-					"action" => str_replace(array("{tmpl}", "{type}"), array(util::id(new idea($id))->getTitle(), "idea"), notification::NOTIFICATION_COMMENT),
-					"url" => str_replace("/comment", "", $this->getUrl()));
-				$notification->compose(new view('mail'), $action);
-				$notification->setTitle("Comment left on " . util::id(new idea($id))->getTitle() . " idea on Project REALISE");
-				$notification->send();
-				
 				echo json_encode(array("status" => 200, "html" => $html));
 				
 			} else {
@@ -298,6 +293,8 @@ class controller_ideas extends controller {
 		} catch(Exception $e){
 			echo json_encode(array("status" => 599, "message" => $e->getMessage()));
 		}
+         
+         
 	}
 	
 	protected function deleteComment($args){
