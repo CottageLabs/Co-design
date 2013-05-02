@@ -416,14 +416,6 @@ body {
 }
 
 .search-bar .category {
-/*	-webkit-appearance: none;
-	padding: 1px 10px;
-	margin: 0 0 0 5px;
-	background: #fff url(../images/arrow_down.png) no-repeat right;
-	background-position-x: 170px;
-	background-size: 29px 17px;
-	cursor: pointer;
-*/
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -442,6 +434,7 @@ body {
 }
 
 .search-bar .search-go {
+	cursor: pointer;
     width:40px;
     height:21px;
 	background: #f37c22;
