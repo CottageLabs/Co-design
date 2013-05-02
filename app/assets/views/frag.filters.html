@@ -1,20 +1,13 @@
 <div class='search-bar'>
     <h2>SEARCH</h2>
     <form accept-charset="UTF-8" action="?" method="get" class='search-form'>
-    	<input class="go" type="submit" value="Go" />
-		<ol>
-			<li>
-				<label class=" label" for="project_name">Name contains</label>
-        		<input name="search" type="text"/>
-        	</li>
-			<li>
-				<label class=" label" for="category">Category</label>
-        		<select class="category" name="category">
-        			<option value="0">Any</option>
-        			{categories}
-        		</select>
-        	</li>
-        </ol>
-        
+		<label class=" label" for="project_name">Name contains</label>
+		<input name="search" type="text"/>
+		<label class=" label" for="category">Category</label>
+		<select class="category" name="category">
+			<option value="0">Any</option>
+			{categories}
+		</select>
+    	<input class="search-go" type="submit" value="Go" />        
     </form>
 </div>
