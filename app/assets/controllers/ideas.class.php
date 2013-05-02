@@ -181,6 +181,8 @@ class controller_ideas extends controller {
 		} catch(Exception $e) {
 			$this->viewport()->replace("linked-projects", "");
 		}
+
+		$this->viewport()->replace('overview', $this->m_currentIdea->getOverview());
 		
 		// Deal with tags.
 		$tags = $this->m_currentIdea->parseTags($this->m_currentIdea);
