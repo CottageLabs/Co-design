@@ -410,7 +410,7 @@ class controller_ideas extends controller {
 		try {
 			$idea = new idea($id);
 			
-			$idea->setImage($_FILES['image']);
+			//$idea->setImage($_FILES['image']);
 			$idea->setDescription($_POST['description']);
 			$idea->setOverview($_POST['overview']);
 			$idea->setCategory(new category((int)$_POST['category']));
@@ -419,7 +419,7 @@ class controller_ideas extends controller {
 			
 			$idea->addTags($idea, $_POST['tags']);
 		
-			$this->redirect("/idea/" . $id);
+			$this->redirect("/ideas/" . $id);
 		
 		} catch(Exception $e){
 			echo $e->getMessage();

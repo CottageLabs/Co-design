@@ -16,7 +16,7 @@ abstract class resource extends dbo {
 		$tags = array_unique(explode(" ", trim($tags)));
 
 		$resourceTags = $obj->getTags();
-		print_r($resourceTags);
+		//print_r($resourceTags);
 
 		foreach($tags as $tag){
 			$tag = trim(($tag), ",");
@@ -34,7 +34,7 @@ abstract class resource extends dbo {
 					$obj->addTag($t);
 				} else {
 					//print_r($e->getTrace());// $e->getMessage();
-					echo $e->getMessage();
+					//echo $e->getMessage();
 				}
 			}
 		}

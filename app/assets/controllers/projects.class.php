@@ -305,19 +305,7 @@ class controller_projects extends controller {
 				
 				$comment_id = $comment->commit();
 				
-				$html = $comment->get($this->m_user);
-				
-				// Fire off a notification
-				
-				$notification = new notification();
-				$action = array(
-					"user" => $this->m_user->getName(),
-					"body" => $_POST['body'],
-					"action" => str_replace(array("{tmpl}", "{type}"), array(util::id(new project($id))->getName(), "project"), notification::NOTIFICATION_COMMENT),
-					"url" => str_replace("/comment", "", $this->getUrl()));
-				$notification->compose(new view('mail'), $action);
-				$notification->setTitle("Comment left on " . util::id(new project($id))->getName() . " project on Project REALISE");
-				$notification->send();
+				$html = $comment->get($this->m_user);				
 				
 				echo json_encode(array("status" => 200, "html" => $html));
 				
