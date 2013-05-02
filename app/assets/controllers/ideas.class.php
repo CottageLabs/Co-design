@@ -23,13 +23,13 @@ class controller_ideas extends controller {
 		$this->bind("^new/add", "addIdea"); // Add a new idea (process)
 		
 		$this->bind("^[0-9]+$", "renderIdea"); // View a specific idea.
-		$this->bind("^[0-9]+/vote$", "vote"); // DATA - vote on an idea
+		//$this->bind("^[0-9]+/vote$", "vote"); // DATA - vote on an idea
 		
 		$this->bind("^(?P<id>[0-9]+)/comment$", "comment"); // Comment on an idea
 		$this->bind("^(?P<id>[0-9]+)/comment/(?P<comment_id>[0-9]+)/delete", "deleteComment"); // Delete comment
 		
-		$this->bind("^(?P<id>[0-9]+)/incubate$", "incubateIdea"); // Display the incubate form.
-		$this->bind("^(?P<id>[0-9]+)/incubate/confirm", "processIncubation"); // Make a new project with this info set to incubated.
+		//$this->bind("^(?P<id>[0-9]+)/incubate$", "incubateIdea"); // Display the incubate form.
+		//$this->bind("^(?P<id>[0-9]+)/incubate/confirm", "processIncubation"); // Make a new project with this info set to incubated.
 		
 		$this->bind("^(?P<id>[0-9]+)/admin$", "ideaAdmin"); // Administer an idea.
 		$this->bind("^(?P<id>[0-9]+)/admin/update$", "adminSave"); // Administer an idea.
@@ -54,11 +54,10 @@ class controller_ideas extends controller {
         // Put the appropriate style on the navigation bar link pointing to the current page
         $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
 
-		$side = new view('frag.filters');
-		$side->append(new view('ideaLinks'));
-		$side->append(new view('frag.sideInfo'));
-		$side->replace("categories", util::getCategories());
-		$this->superview()->replace("sideContent", $side);
+        //search bar
+		$filters = new view('frag.filters');
+		$filters->replace("categories", util::getCategories());
+        $this->viewport()->replace("filters", $filters);
 
 		$search = isset($_GET['search']) ? $_GET['search'] : "";
 		$category = isset($_GET['category']) ? (int)$_GET['category'] : 0;
@@ -69,15 +68,13 @@ class controller_ideas extends controller {
 
 		// If the user is filtering add the search query to the SQL object.
 		if(!empty($search)){
-			$ideas->setQuery(array("", "title", "LIKE", "%" . $search . "%"));
-			$operator = "AND";
-		} else {
-			$operator = "";
+			$ideas->setQuery(array("AND", "title", "LIKE", "%" . $search . "%"));
 		}
 		
-		if($category != 0) $ideas->setQuery(array($operator, "category_id", "=", $category));
+		if($category != 0) $ideas->setQuery(array("AND", "category_id", "=", $category));
 		
-		if(!$this->m_user->getIsAdmin()) $ideas->setQuery(array($operator, "hidden", "=", 0));
+		if(!$this->m_user->getIsAdmin()) $ideas->setQuery(array("AND", "hidden", "=", 0));
+		
 		
 		$o = new view();
 		
@@ -98,6 +95,7 @@ class controller_ideas extends controller {
 		}
 
 		$this->viewport()->replace("recentIdeas", $o);
+        
 	
 		if($this->m_user->getIsAdmin()) $this->superview()->replace("additional-assets", util::newScript("/presentation/scripts/admin.js"));
 		

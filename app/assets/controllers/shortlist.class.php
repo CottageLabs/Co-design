@@ -20,7 +20,7 @@ class controller_shortlist extends controller {
 		$this->bind("^(?P<id>[0-9]+)/comment$", "comment"); // Comment on an idea 
 		$this->bind("^(?P<id>[0-9]+)/comment/(?P<comment_id>[0-9]+)/delete", "deleteComment"); // Delete comment
 
-		$this->bind("^(?P<id>[0-9]+)/vote$", "vote"); // DATA - vote on an idea
+		//$this->bind("^(?P<id>[0-9]+)/vote$", "vote"); // DATA - vote on an idea
 
 		$this->bind("^(?P<id>[0-9]+)/admin$", "renderAdmin");
 		$this->bind("^(?P<id>[0-9]+)/admin/update$", "adminSave");
@@ -48,6 +48,11 @@ class controller_shortlist extends controller {
         // Put the appropriate style on the navigation bar link pointing to the current page
         $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
 
+        //search bar
+        $filters = new view('frag.filters');
+        $filters->replace("categories", util::getCategories());
+        $this->viewport()->replace("filters", $filters);
+        
 		$search = isset($_GET['search']) ? $_GET['search'] : "";
 		$category = isset($_GET['category']) ? (int)$_GET['category'] : 0;
 
@@ -74,16 +79,7 @@ class controller_shortlist extends controller {
 			$render->append($template->get());
 		}
 
-		$this->viewport()->replace("recentIdeas", $render);
-		
-		$side = new view('frag.filters');
-		$side->append(new view('ideaLinks'));
-		$side->append(new view("frag.projectResources"));
-		$side->append(new view('frag.sideInfo'));
-		
-		$side->replace("categories", util::getCategories());
-		
-		$this->superview()->replace("sideContent", $side);
+		$this->viewport()->replace("recentIdeas", $render);		
 		
 		if($this->m_user->getIsAdmin()) $this->superview()->replace("additional-assets", util::newScript("/presentation/scripts/admin.js"));
 		
