@@ -205,6 +205,7 @@ class controller_ideas extends controller {
 
 		// Get the category
 		$this->viewport()->replace('category', $this->m_currentIdea->getCategory()->getName());
+		$this->viewport()->replace('category-image', $this->m_currentIdea->getCategory()->getImage());
 		$this->viewport()->replace('cat-id', $this->m_currentIdea->getCategory()->getId());
 
 		$button = new view();
