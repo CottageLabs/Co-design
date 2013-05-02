@@ -1,59 +1,32 @@
-        <div id='content' class='projects'>
-        <div class="columns">
+<div id='content' class='projects'>
+    <div class="columns">
         
         <div class="column column-thin">
-        <div class="context">
-        <h1>PROJECTS</h1>
-        <p>
-        These are the ideas that the co-designers decided to pursue in 2013. All of these ideas offer the potential to help universities address important strategic goals such as the student experience, research excellence and institutional efficiency and effectiveness. And all of them should be feasible in the timescales. They offer up a mixture of different risk levels and approaches and should offer a good test for this pilot co-design programme. Progress on the projects will be tracked via this site.
-        </p>
-        </div>
+	        <div class="context">
+		        <h1>PROJECTS</h1>
+		        <p>
+			        These are the ideas that the co-designers decided to pursue in 2013. All of these ideas offer the potential to help universities address important strategic goals such as the student experience, research excellence and institutional efficiency and effectiveness. And all of them should be feasible in the timescales. They offer up a mixture of different risk levels and approaches and should offer a good test for this pilot co-design programme. Progress on the projects will be tracked via this site.
+		        </p>
+	        </div>
 
-        <div class='context-help'>
-        <h2>Any links?</h2>
-        <p>
-        These are the projects we will be pursuing between now and December 2013. We are really interested in any feedback on the projects or any links to other work that may be relevant to the projects. Please share any information in the comments.
-        </p>
-        </div>
-        <!--
-        <div class='context-links'>
-        <a href='somepage'>HELP &#187;</a>
-        <a href='somepage'>FAQ &#187;</a>
-        <a href='somepage'>MORE INFO &#187;</a>
-        </div>
-        -->
+    	    <div class='context-help'>
+        		<h2>Any links?</h2>
+		        <p>
+			        These are the projects we will be pursuing between now and December 2013. We are really interested in any feedback on the projects or any links to other work that may be relevant to the projects. Please share any information in the comments.
+		        </p>
+	        </div>
         </div>
 
         <div class="column column-main">
-        <div class='search-bar'>
-        <h2>SEARCH PROJECTS</h2>
-        <form accept-charset="UTF-8" action="/search_projects" method="post" class='search-form'>
-        <ol>
-        <li>
-        <label class=" label" for="project_name">Name contains</label>
-        <input name="project[name]" type="text"/>
-        </li>
-        <li>
-        <label class=" label" for="category">Category</label>
-        <select class="category" name="project[category]"><option value=""></option>
-        <option selected value="any">Any</option>
-        <option value="1">Category 1</option>
-        <option value="2">Category 2</option>
-        <option value="3">Category 3</option>
-        <option value="4">Category 4</option></select>
-        </li>
-        </ol>
-        </form>
+        	{filters}
+ 
+ 	        <div class='tiles'>
+	            {recentIdeas}
+	       		<div class='clear'></div> 
+	        </div>
+	        <a href='more' class='button more'>MORE PROJECTS</a>
+ 	       <div class='clear'></div>    
         </div>
-
-        <div class='tiles'>
-            {recentIdeas}
-        <div class='clear'></div> 
-        </div>
-        <a href='more' class='button more'>MORE PROJECTS</a>
-        <div class='clear'></div>
         
-
-        </div>
-        </div>
-        </div>
+    </div>
+</div>
