@@ -265,10 +265,12 @@ class controller_ideas extends controller {
 	}
 	
 	protected function comment($args){
+        
 		$this->m_noRender = true;
 		
 		$id = $args['id'];
-		
+        
+        
 		try {
 			if($this->m_user->getId() != null) {
 				$comment = new comment();
@@ -282,18 +284,6 @@ class controller_ideas extends controller {
 				
 				$html = $comment->get($this->m_user);
 				
-				// Fire off a notification
-				
-				$notification = new notification();
-				$action = array(
-					"user" => $this->m_user->getName(),
-					"body" => $_POST['body'],
-					"action" => str_replace(array("{tmpl}", "{type}"), array(util::id(new idea($id))->getTitle(), "idea"), notification::NOTIFICATION_COMMENT),
-					"url" => str_replace("/comment", "", $this->getUrl()));
-				$notification->compose(new view('mail'), $action);
-				$notification->setTitle("Comment left on " . util::id(new idea($id))->getTitle() . " idea on Project REALISE");
-				$notification->send();
-				
 				echo json_encode(array("status" => 200, "html" => $html));
 				
 			} else {
@@ -303,6 +293,8 @@ class controller_ideas extends controller {
 		} catch(Exception $e){
 			echo json_encode(array("status" => 599, "message" => $e->getMessage()));
 		}
+         
+         
 	}
 	
 	protected function deleteComment($args){
