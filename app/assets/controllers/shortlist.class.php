@@ -29,7 +29,7 @@ class controller_shortlist extends controller {
 		$this->bind("^(?P<id>[0-9]+)/admin/demoteMember$", "demoteMember");
 
 		// Bind pages
-		$this->bind("^page/(?P<id>[0-9]+)", "incubatorIndex");
+		$this->bind("^page/(?P<id>[0-9]+)", "shortlistIndex");
 
 		$this->bindDefault('shortlistIndex');
 	}
@@ -56,25 +56,25 @@ class controller_shortlist extends controller {
 		$search = isset($_GET['search']) ? $_GET['search'] : "";
 		$category = isset($_GET['category']) ? (int)$_GET['category'] : 0;
 
-		$projects = new collection(collection::TYPE_SHORTLIST);
-		$projects->setLimit($pageId * $this->m_pageLimit, $this->m_pageLimit);
-		$projects->setSort("name", collection::SORT_ASC);
+		$shortlists = new collection(collection::TYPE_SHORTLIST);
+		$shortlists->setLimit($pageId * $this->m_pageLimit, $this->m_pageLimit);
+		$shortlists->setSort("name", collection::SORT_ASC);
 
 		// If the user is filtering add the search query to the SQL object.
 		if(!empty($search)){
-			$projects->setQuery(array("AND", "name", "LIKE", "%" . $search . "%"));
+			$shortlists->setQuery(array("AND", "name", "LIKE", "%" . $search . "%"));
 		}
 		
-		if($category != 0) $projects->setQuery(array("AND", "category_id", "=", $category));
+		if($category != 0) $shortlists->setQuery(array("AND", "category_id", "=", $category));
 		
-		if(!$this->m_user->getIsAdmin()) $projects->setQuery(array("AND", "hidden", "=", 0));
+		if(!$this->m_user->getIsAdmin()) $shortlists->setQuery(array("AND", "hidden", "=", 0));
 		
 		$render = new view();
 		
-		foreach($projects->get() as $project) {
-			if($project->getHidden() && !$this->m_user->getIsAdmin()) continue;
+		foreach($shortlists->get() as $shortlist) {
+			if($shortlist->getHidden() && !$this->m_user->getIsAdmin()) continue;
 			
-			$template = new resourceView($project, $this->m_user);
+			$template = new resourceView($shortlist, $this->m_user);
 			
 			$render->append($template->get());
 		}
@@ -84,8 +84,10 @@ class controller_shortlist extends controller {
 		if($this->m_user->getIsAdmin()) $this->superview()->replace("additional-assets", util::newScript("/presentation/scripts/admin.js"));
 		
 		// Pagination
-		$pagination = new paginationView($projects, $pageId, $this->m_pageLimit);
-		$this->viewport()->replace('pages', $pagination);
+		$pagination = new paginationView($shortlists, $pageId, $this->m_pageLimit);
+		if(!empty($pagination)) $this->viewport()->replace('pages', $pagination);
+		else $this->viewport()->replace('pages', '');
+
 	}
 	
 	protected function renderItem(){
@@ -181,9 +183,9 @@ class controller_shortlist extends controller {
 		$sidebar->append( $this->m_currentProject->formatProjectUsers() );
 		$sidebar->append(new view('frag.projectFollowers'));
 		
-		$project_followers = $this->m_currentProject->countVotes(resource::MEMBERSHIP_USER);
+		$shortlist_followers = $this->m_currentProject->countVotes(resource::MEMBERSHIP_USER);
 		
-		$sidebar->replace('follower-count', $project_followers);
+		$sidebar->replace('follower-count', $shortlist_followers);
 		
 		if(!$this->m_user->getEnrollment($this->m_currentProject, resource::MEMBERSHIP_ADMIN) && $this->m_user->getId() != null){
 			$voteButton = new view('frag.followProject');
@@ -200,7 +202,7 @@ class controller_shortlist extends controller {
 			$sidebar->replace('follow', '');
 		}
 		
-		if($project_followers > 0){
+		if($shortlist_followers > 0){
 			// Get a list of followers
 			$followers = $this->m_currentProject->getVoters(resource::MEMBERSHIP_USER);
 			
@@ -526,13 +528,13 @@ class controller_shortlist extends controller {
 		
 		$id = $args['id'];
 		
-		$project = new project((int)$id);
+		$shortlist = new project((int)$id);
 		
-		if($this->m_user->getEnrollment($project, resource::MEMBERSHIP_ADMIN)){
+		if($this->m_user->getEnrollment($shortlist, resource::MEMBERSHIP_ADMIN)){
 			foreach($_POST['users'] as $userid){
 				$user = new user((int)$userid);
 				
-				$project->promoteUser($this->m_user, $user, resource::MEMBERSHIP_ADMIN);
+				$shortlist->promoteUser($this->m_user, $user, resource::MEMBERSHIP_ADMIN);
 				$return = array("status" => 200);
 			}
 		} else {
@@ -549,13 +551,13 @@ class controller_shortlist extends controller {
 		
 		$id = $args['id'];
 		
-		$project = new project((int)$id);
+		$shortlist = new project((int)$id);
 		
-		if($this->m_user->getEnrollment($project, resource::MEMBERSHIP_ADMIN)){
+		if($this->m_user->getEnrollment($shortlist, resource::MEMBERSHIP_ADMIN)){
 			
 				$user = new user((int)$_POST['user_id']);
 				
-				$project->promoteUser($this->m_user, $user, resource::MEMBERSHIP_USER);
+				$shortlist->promoteUser($this->m_user, $user, resource::MEMBERSHIP_USER);
 				$return = array("status" => 200);
 		} else {
 			$return = array("status" => 500, "details" => "You do not have adequate permissions to perform this function.");
@@ -574,19 +576,19 @@ class controller_shortlist extends controller {
 		}
 		
 		try {
-			$project = new project((int)$_POST['project']);
+			$shortlist = new project((int)$_POST['project']);
 			
 			// Has the user voted?
-			if($project->hasVoted($this->m_user)){
+			if($shortlist->hasVoted($this->m_user)){
 				// Vote down	
-				$project->voteClear($this->m_user);
+				$shortlist->voteClear($this->m_user);
 				$action = "unfollow";
 				$recalc = -1;
 				
 				$image = "/presentation/images/plus-circle.png";
 			} else {
 				// Vote up
-				$project->voteUp($this->m_user);
+				$shortlist->voteUp($this->m_user);
 				$recalc = 1;
 				$action = "follow";
 				$image = "/presentation/images/minus-white.png";

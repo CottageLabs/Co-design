@@ -89,7 +89,9 @@ class controller_projects extends controller {
 		
 		// Pagination
 		$pagination = new paginationView($projects, $pageId, $this->m_pageLimit);
-		$this->viewport()->replace('pages', $pagination);
+		if(!empty($pagination)) $this->viewport()->replace('pages', $pagination);
+		else $this->viewport()->replace('pages', '');
+
 	}
 	
 	protected function renderItem(){

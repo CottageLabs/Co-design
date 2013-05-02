@@ -22,7 +22,7 @@
 		
 		switch($data->getType()){
 			case collection::TYPE_IDEA:
-				$this->resourceType = "idea";
+				$this->resourceType = "ideas";
 			break;
 			
 			case collection::TYPE_PROJECT:

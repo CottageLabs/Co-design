@@ -592,3 +592,29 @@ ol.numbered-list li {
 
 */
 
+
+/* stuff added by MM on 02052013 for pagination */
+.pageLinkHolder{
+    margin:10px 0 10px 25px;
+    padding:10px;
+    border:1px solid #dee6f1;
+    text-align:center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.pageLink{
+    font-size:14px;
+    padding:5px;
+    margin:5px;
+	color: #f37c22;
+}
+.pageLink.selected{
+    color:#dee6f1;
+}
+
+/*
+<a class="pageLink selected" href="/ideas/page/1">1</a><a class="pageLink " href="/ideas/page/2">2</a><a class="pageLink " href="/ideas/page/3">3</a><a class="pageLink " href="/ideas/page/4">4</a><a class="pageLink " href="/ideas/page/5">5</a><a class="pageLink {class}" href="/ideas/page/2">&raquo;</a>
+	*/        	
+
+
