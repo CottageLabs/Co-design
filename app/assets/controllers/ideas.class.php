@@ -38,6 +38,10 @@ class controller_ideas extends controller {
 		$this->bind("^page/(?P<id>[0-9]+)", "renderIdeasIndex");
 
 		$this->bindDefault('renderIdeasIndex');
+
+        // Put the appropriate style on the navigation bar link pointing to the current page
+        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
+
 	}
 	
 	protected function renderideasIndex($args = NULL){
@@ -50,9 +54,6 @@ class controller_ideas extends controller {
 		$pageId--;
 
 		$this->pageName = "- Ideas";
-
-        // Put the appropriate style on the navigation bar link pointing to the current page
-        $this->superview()->replace("current-page-" . $this->controller_name, 'class="current"');
 
         //search bar
 		$filters = new view('frag.filters');
@@ -120,12 +121,12 @@ class controller_ideas extends controller {
 		
 		if(isset($_SESSION['createdNewIdea']) && $_SESSION['createdNewIdea'] == true){
 			$new = new view('frag.createdNew');
-			$new->append(new view('ideaOverview'));
+			$new->append(new view('idea_details'));
 			$this->setViewport($new);
 			
 			unset($_SESSION['createdNewIdea']);
 		} else {
-			$this->setViewport(new view("ideaOverview"));
+			$this->setViewport(new view("idea_details"));
 		}
 		
 		$this->pageName = "- " . $this->m_currentIdea->getName();
