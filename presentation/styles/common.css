@@ -569,6 +569,18 @@ span.spacer {
 	color:#aaa;
 }
 
+input.go {
+	background: #96a5b1;
+	padding: 6px 15px 5px 15px;
+	border-radius: 4px;
+	box-shadow: 0 2px 0px #748796;
+	float: right;
+	color: #fff;
+	width: inherit;
+	height: inherit;
+	
+}
+
 /*
 ol.numbered-list {
     list-style-type:decimal;

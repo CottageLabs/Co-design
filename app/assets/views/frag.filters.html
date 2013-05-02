@@ -1,18 +1,20 @@
-<div id="filters">
-	<h1>FILTERS</h1>
-	<form>
-		<label for="search">Name contains:</label>
-		<input id="search" name="search" type="search" />
-		
-		<br />
-		
-		<label for="category">In category:</label>
-		<select name="category" id="category">
-			<option value="0">Any</option>
-			{categories}
-		</select>
-		
-		<br /><br />
-		<input type="submit" value="Filter" />
-	</form>
+<div class='search-bar'>
+    <h2>SEARCH</h2>
+    <form accept-charset="UTF-8" action="?" method="get" class='search-form'>
+    	<input class="go" type="submit" value="Go" />
+		<ol>
+			<li>
+				<label class=" label" for="project_name">Name contains</label>
+        		<input name="search" type="text"/>
+        	</li>
+			<li>
+				<label class=" label" for="category">Category</label>
+        		<select class="category" name="category">
+        			<option value="0">Any</option>
+        			{categories}
+        		</select>
+        	</li>
+        </ol>
+        
+    </form>
 </div>
