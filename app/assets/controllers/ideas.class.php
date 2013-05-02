@@ -197,7 +197,8 @@ class controller_ideas extends controller {
 			$this->m_owner = true;
 			$this->viewport()->replace('owner', "you");
 		} else {
-			$this->viewport()->replace('owner', $this->m_ideaOwner->getHTMLName());		
+			$this->viewport()->replace('owner', $this->m_ideaOwner->getHTMLName());
+			$this->viewport()->replace('owner_text_name', $this->m_ideaOwner->getName());
 		}
 
 		$this->viewport()->replace('ownerPic', $this->m_ideaOwner->getPicture());

@@ -1,3 +1,48 @@
+        <div id='content' class='idea-project'>
+        <div class="columns">
+        
+        <div class="column column-thin">
+        <div class="user-info">
+        <div class="suggested-by">suggested by</div>
+        <h2>{owner}</h2>
+        <div id="profile-photo"><img src="{ownerPic}" alt="{owner_text_name}'s picture" /></div> 
+        </div>
+
+        <!--
+        <div class='context-links'>
+        <a href='somepage'>OTHER OPEN-SOURCE SOFTWARE &187;</a>
+        <a href='somepage'>HELP &187;</a>
+        <a href='somepage'>FAQ &187;</a>
+        <a href='somepage'>MORE INFO &187;</a>
+        </div>
+        -->
+
+        </div>
+
+        <div class="column column-main">
+        <div class="project-info-wrapper">
+        <div class="project-info">
+        	<!--<div class='label navy listed-project'>LISTED
+                PROJECT</div>-->
+            <div class="project-icon"><img src="{image}" alt="{title} image" /></div>
+            <h1>{title}</h1>
+        </div>
+            <!--<div class="actions"><div class="action">messages (0)</div><div class="action">interest (0)</div><div class="action">associated (0)</div></div>-->
+            <div class="project-description">
+                <div class="heading"><h1>description</h1></div>
+                <h2>{description}</h2>
+            </div>
+        <div class="category"><a href="/category/{cat-id}">{category}</a></div>
+        <div class="comments">
+        <div class="heading"><h1>Comments</h1></div>
+        {comment-block}
+        </div>
+        
+        </div>
+        </div>
+        </div>
+        </div>
+<!--
 <div id="theIdea">
 	<img src="{image}" align="right" alt="{title} image" id="ideaImage" />
 	<h1>{title}</h1>
@@ -26,3 +71,4 @@
 	<br /><br /><br />
 	{comment-block}
 </div>
+-->
