@@ -1,0 +1,46 @@
+# put me in the /etc/nginx/sites-available or equivalent on your system
+# then ln -s ../sites-available/nginx_site_conf codesign
+# also need a fastcgi server on port 9000
+# apt-get install php5-mysql
+
+
+server {
+    listen   80;
+
+    root /home/one/code/Co-design;  # set to wherever the index.php file is
+    index index.php index.html index.htm;
+
+    server_name _;
+
+    location / {
+        try_files $uri $uri/ /index.php;
+
+        if (!-f $request_filename) {
+                rewrite  ^(.*)$  /index.php?p=$1  last;
+                break;
+        }
+
+        if (!-d $request_filename) {
+                rewrite  ^(.*)$  /index.php?p=$1  last;
+                break;
+        }
+
+    }
+
+    location ~* ^.+.(jpg|jpeg|gif|css|png|js|ico)$ {
+        access_log        off;
+        expires           30d;
+    }
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_param SCRIPT_FILENAME /home/one/code/Co-design/$fastcgi_script_name; # set this to wherever index.php is
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+    }
+
+}
+
