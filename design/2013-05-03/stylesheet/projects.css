@@ -1,0 +1,32 @@
+.projects .tile {
+	background-color: #f3904c;
+	box-shadow: 0 2px 0 #f37c22;
+}
+
+.projects .tile .title {
+	color: #002542;
+}
+
+.projects .tile .description {
+	color: #fff;
+}
+
+.projects .actions .action {
+	background-color: #072541;
+	color: #fff;
+	box-shadow: 0 2px 0 #000;
+}
+
+.projects .actions .action:hover{
+	background-color: #034d84;
+	
+}
+
+.projects a.button.more {
+	background-color: #f37c22;
+	color: #fff;
+	box-shadow: 0 2px 0 #c7612d;
+}
+.projects a.button.more:hover {
+	background-color: #f3904c;
+}
