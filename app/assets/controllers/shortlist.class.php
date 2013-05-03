@@ -75,11 +75,13 @@ class controller_shortlist extends controller {
 			if($shortlist->getHidden() && !$this->m_user->getIsAdmin()) continue;
 			
 			$template = new resourceView($shortlist, $this->m_user);
-			
+		    
 			$render->append($template->get());
 		}
 
 		$this->viewport()->replace("recentIdeas", $render);		
+		$this->viewport()->replace("listed-project", '');		
+		$this->viewport()->replace("listed-project-title-style", '');		
 		
 		if($this->m_user->getIsAdmin()) $this->superview()->replace("additional-assets", util::newScript("/presentation/scripts/admin.js"));
 		

@@ -86,6 +86,9 @@ class controller_projects extends controller {
 		}
 		
 		$this->viewport()->replace("recentIdeas", $o);
+
+		$this->viewport()->replace("listed-project", '');		
+		$this->viewport()->replace("listed-project-title-style", '');		
 		
 		if($this->m_user->getIsAdmin()) $this->superview()->replace("additional-assets", util::newScript("/presentation/scripts/admin.js"));
 		

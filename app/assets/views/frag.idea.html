@@ -2,10 +2,10 @@
     <div class='tile'>
     	<input type="hidden" name="id" value="{id}" />
 		<input type="hidden" name="type" value="{type}" />
-        <!--div class='label listed-project'>LISTED PROJECT</div-->
+        {listed-project}
         <img src='{category-image}' alt="{category-name}" title="{category-name}" />
         <!--div class='clear'></div-->
-        <div class='title'><a href="{url}">{title}</a></div>
+        <div class='title {listed-project-title-style}'><a href="{url}">{title}</a></div>
         <div class='description'>{overview}</div>
     </div>
     <div class='actions'>

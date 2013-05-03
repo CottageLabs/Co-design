@@ -521,6 +521,10 @@ body {
 	margin: 10px 0;
 }
 
+.tile .listed-project-title, .tile .listed-project-title a {
+	margin: 35px 0 10px 0;
+}
+
 .tile img {
 	height: 78px;
 	float: right;

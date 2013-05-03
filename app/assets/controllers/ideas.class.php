@@ -92,6 +92,17 @@ class controller_ideas extends controller {
 		foreach($ideaArray as $idea) {
 			if($idea->getHidden() && !$this->m_user->getIsAdmin()) continue;
 			$template = new resourceView($idea, $this->m_user);
+
+	        $lp = new view('frag.listed-project');
+            if ($idea->getProjectCount() > 0) {
+                $template->replace("listed-project", $lp);
+                $template->replace("listed-project-title-style", 'listed-project-title');
+                
+            } else {
+                $template->replace("listed-project", '');
+                $template->replace("listed-project-title-style", '');
+            }
+
 			$o->append( $template->get() );
 		}
 
