@@ -110,6 +110,8 @@ class user extends dbo {
 		$data['hash'] = $this->hash;
 		//$data['emailPublic'] = (int)$this->emailPublic;
 		$data['bio'] = $this->bio;
+		$data['admin'] = $this->admin;
+        $data['forum'] = $this->forum;
 		
 		$db = db::singleton();
 		$check = $db->single("SELECT id FROM user WHERE id = '{$this->id}'");
@@ -249,6 +251,14 @@ class user extends dbo {
     
     public function getIsForum(){
         return (BOOL) $this->forum;
+    }
+    
+    public function setIsAdmin($admin){
+        $this->admin = $admin;
+    }
+    
+    public function setIsForum($forum){
+        $this->forum = $forum;
     }
     
 	
