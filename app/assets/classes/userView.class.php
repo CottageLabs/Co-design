@@ -18,15 +18,15 @@ class userView extends view {
         
         
         if ($this->user->getIsAdmin()) {
-            $this->replace("isadmin",  "<input type=\"checkbox\" name=\"user_isadmin\" value=\"user_" . $this->user->getId() . "\"  checked=\"checked\" />");    
+            $this->replace("isadmin",  "<input type=\"checkbox\" name=\"user_isadmin_" . $this->user->getId() . "\" value=\"true\" checked=\"checked\" />");    
         } else {
-            $this->replace("isadmin",  "<input type=\"checkbox\" name=\"user_isadmin\" value=\"user_" . $this->user->getId() . "\" />");
+            $this->replace("isadmin",  "<input type=\"checkbox\" name=\"user_isadmin_" . $this->user->getId() . "\" value=\"true\" />");
         }
         
         if ($this->user->getIsForum()) {
-            $this->replace("isforum",  "<input type=\"checkbox\" name=\"user_isforum\" value=\"user_" . $this->user->getId() . "\"  checked=\"checked\" />");    
+            $this->replace("isforum",  "<input type=\"checkbox\" name=\"user_isforum_" . $this->user->getId() . "\" value=\"true\" checked=\"checked\" />");    
         } else {
-            $this->replace("isforum",  "<input type=\"checkbox\" name=\"user_isforum\" value=\"user_" . $this->user->getId() . "\" />");
+            $this->replace("isforum",  "<input type=\"checkbox\" name=\"user_isforum_" . $this->user->getId() . "\" value=\"true\" />");
         }
                 
     }
