@@ -442,6 +442,12 @@ body {
 	color:#fff;
 }
 
+#noResults{
+    margin:10px 0 10px 25px;
+    padding:10px;
+    text-align:center;
+}
+
 .tiles {
 	margin: 0 0 5px 0;
 }
@@ -593,7 +599,6 @@ ol.numbered-list li {
 }
 
 */
-
 
 /* stuff added by MM on 02052013 for pagination */
 .pageLinkHolder{
