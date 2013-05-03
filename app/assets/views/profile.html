@@ -1,55 +1,64 @@
-<div id="profile" class="innerContent">
-	<h1>Update your profile</h1>
-	
-	<form action="profile/update" method="post" class="innerContent" enctype="multipart/form-data">
-	
-		<h2>Image</h2>
-		<p>
-			<div class="img"><label for="newImage"><img src="{profileImage}" align="left" /></label></div>
-			<div class="leftMargin">
-			<p>Choose an image to use as your profile image. Note: it will be resized to 80x80.</p>
-			<p><input type="file" name="newImage" id="newImage" /></p>
+<div id='content' class='idea-lab'>
+	<div class="columns">
+		
+		<div class="column column-thin">
+			<div class="context">
+				<h1>Your profile</h1>
+				<p>
+				    Update your profile details on this page.
+				</p>
 			</div>
-		</p>
-		
-		<br style="clear:both" />
-		
-		<p style="clear:both">
-			<h2>Username</h2>
-			<label for="username">Username:</label><br />
-			<input type="text" name="username" id="username" value="{username}" size="50" />
-			<p>Setting a username will allow people to view your profile. Your username must be unique.</p>
-		</p>
-		
-		<p>
-			<h2>Password</h2>
-			<label for="password">Password:</label><br />
-			<input type="password" name="password" id="password" />
-			<p>Note: This will only change your password on REALISE. This will not affect LinkedIn logins.</p>
-		</p>
-		
-		<p>
-			<h2>Tagline</h2>
-			<label for="newTagline">Tagline:</label> <br />
-			<input type="text" name="newTagline" id="newTagline" value="{tagline}" size="120" />
-		</p>
-		
-		<p>
-			<h2>Email</h2>
-			<label for="newEmail">Email:</label> <br />
-			<input type="text" name="newEmail" id="newEmail" value="{email}" size="120" />
-			<p><input type="checkbox" name="emailVisibility" id="emailVisibility"{emailVisibility} /><label for="emailVisibility">Allow people to contact me</label></p>
-			<p>We won't display your email publicly, but other users will be able to send you messages through REALISE.</p>
-		</p>
-		
-		<p>
-			<h2>Bio</h2>
-			<label for="bio">Bio:</label> <br />
-			<textarea id="bio" name="bio">{bio}</textarea>
-		</p>
-		
-		
-		<br style="clear:both" />
-		<input type="submit" name="submit" value="Save" />
-	</form>
+		</div>
+
+		<div class="column column-main">
+
+        	
+        	<form action="profile/update" method="post" class="innerContent" enctype="multipart/form-data">
+        	
+                <div class="text-heading">
+                   <h1>Profile image</h1>
+                </div>
+        		<p>
+        			<div class="img"><label for="newImage"><img src="{profileImage}" align="left" /></label></div>
+        			<div class="leftMargin">
+        			<p>Choose an image to use as your profile image. Note: it will be resized to 80x80.</p>
+        			<p><input type="file" name="newImage" id="newImage" /></p>
+        			</div>
+        		</p>
+        		
+                <div class="text-heading">
+        			<h1>Username</h1>
+                </div>
+
+        	    <p>Setting a username will allow people to view your profile. Your username must be unique.</p>
+                <p><input type="text" name="username" id="username" value="{username}" size="20" /></p>
+        		
+                <div class="text-heading">
+        			<h1>Password</h1>
+                </div>
+                <p><input type="password" name="password" id="password" /></p>
+        			<p>Note: This will only change your password on REALISE. This will not affect LinkedIn logins.</p>
+        		
+                <div class="text-heading">
+        			<h1>Tagline</h1>
+                </div>
+                <p><input type="text" name="newTagline" id="newTagline" value="{tagline}" size="50" /></p>
+        		
+                <div class="text-heading">
+        			<h1>Email</h1>
+                </div>
+                <p><input type="text" name="newEmail" id="newEmail" value="{email}" size="50" /></p>
+        			<p><input type="checkbox" name="emailVisibility" id="emailVisibility"{emailVisibility} /><label for="emailVisibility">Allow people to contact me</label></p>
+        			<p>We won't display your email publicly, but other users will be able to send you messages through REALISE.</p>
+        		
+                <div class="text-heading">
+        			<h1>Bio</h1>
+                </div>
+                <p><textarea id="bio" name="bio" rows='10' cols='60'>{bio}</textarea></p>
+        		
+        		
+                <p><input type="submit" name="submit" value="Save" /></p>
+            </form>
+        </div>
+    </div>
 </div>

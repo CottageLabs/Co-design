@@ -2,6 +2,7 @@
 
 class controller_profile extends controller {
 
+    public $controller_name = "profile";
 	private $m_user;
 	private $m_noRender = false;
 

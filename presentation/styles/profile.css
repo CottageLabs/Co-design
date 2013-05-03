@@ -1,0 +1,57 @@
+.context h1 {
+	font-size: 1.9375em; /*31px 16px */
+}
+
+.text-heading h1 {
+	font-size:1.25em;
+	margin: 30px -56px 12px 0;
+	height: 30px;
+	background: #f5f6f7;
+	padding: 8px 0 0 25px;
+	
+}
+p a {
+	text-decoration:none;
+	font-style:italic;
+	color: #002542;
+	font-weight:100;
+}
+
+p a:hover {
+  	color:#dee6f1;
+}
+
+p,
+.listed {
+	padding: 0 0 12px 25px;
+	line-height:140%;
+}
+
+p ul {
+	padding-top:5px;
+}
+
+p li {
+	font-weight:bold;
+	color:#002542;
+}
+
+.listed h2 {
+	font-size: 1em;
+	color: #f37c22;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	line-height: 100%;
+	text-transform: uppercase;
+
+}
+
+.listed ul {
+	padding-top:5px;
+}
+
+.listed li{
+	text-transform: uppercase;
+	font-size:0.875em;
+}
+	
