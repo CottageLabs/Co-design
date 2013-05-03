@@ -4,7 +4,7 @@ class controller_admin extends controller {
 
     public $controller_name = "admin";
 	private $m_user;
-	
+	private $m_noRender = false;
 
 	public function renderViewport() {
 		$this->m_user = $this->objects("user");
@@ -16,7 +16,8 @@ class controller_admin extends controller {
 		 
 		 # These bindings should only work for Admins
         if($this->m_user->getIsAdmin()) {
-            $this->bind("save", "adminSave"); // Delete comment
+            $this->bind("save", "adminSave"); // Save updates
+            $this->bind("delete/(?P<id>[0-9]+)", "deleteUser"); // Delete user
             $this->bindDefault('adminIndex');
         } else {
             $this->redirect("/home?alert=" . urlencode('Please login as an authorised user to view the Admin page'));
@@ -107,6 +108,22 @@ class controller_admin extends controller {
             //None-admins get redirected to home
             $this->redirect("/home?alert=" . urlencode('Please login as an authorised user to view the Admin page'));
         }
+    }
+
+    protected function deleteUser($args){
+        $this->m_noRender = true;
+        
+        try {
+            $user = new user($args['id'], user::ID_LOCAL);
+            $this->m_user->delete($user);        
+            echo json_encode(array("status" => 200));
+        } catch(Exception $e){
+            echo json_encode(array("status" => 599, "message" => $e->getMessage()));
+        }
+    }
+    
+    protected function noRender(){
+        return $this->m_noRender;
     }
 
 }
