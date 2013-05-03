@@ -156,13 +156,14 @@ body {
 .toolbar a:hover {
 	color: #748796;
 }
-.toolbar a.button {
+.toolbar input.button {
 	font-family:Verdana, Geneva, sans-serif;
-	font-size: 13px;
+	/*font-size: 13px;*/
+	width:inherit;
 	color: #fff;
 	display: block;
 	border: 1px solid #f37c22;
-	padding: 6px 3px;
+	/*padding: 6px 3px;*/
 	border-radius: 4px;
 	background: rgb(237,148,97); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(237,148,97,1) 0%, rgba(242,117,33,1) 100%); /* FF3.6+ */

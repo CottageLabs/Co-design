@@ -31,14 +31,23 @@
 		<div id="container">   
 		    <div id="header"> 
 	    		<div class="jisc-logo"></div>
+	    		            		<form style="display: inline;" name="gs" method="GET" action="http://www.google.co.uk/custom">
 		        <ul class='toolbar'>
         			<li><a href='http://www.jisc.ac.uk/news/'>News</a></li>
             		<li><a href='http://www.jisc.ac.uk/events/'>Events</a></li>    
             		<li><a href='http://www.jisc.ac.uk/funding/'>Funding</a></li>
-            		<li><input type="search" class="search-box"></input></li>
-            		<li><a href='#/search' class="button">Search JISC &amp; JISC Services sites</a></li>
+
+					<input type="hidden" name="hl" value="en">
+					<input type="hidden" name="safe" value="off">
+					<input type="hidden" name="client" value="google-coop-np">
+					<input type="hidden" name="cof" value="AH:left;S:http://www.jisc.ac.uk/;CX:JISC%20and%20Services%20Search;L:http://www.jisc.ac.uk/uploaded_documents/JISCcolour15.gif;LH:52;LP:1;LC:#D95900;VLC:#9CA1BD;GALT:#293352;GFNT:#9CA1BD;GIMP:#9CA1BD;DIV:#293352;">
+					<li><input  class="search-box" type="text" name="q" size="24" maxlength="2048" title="Search JISC & JISC Services sites"></li>
+					<li><input class="button" type="submit" name="btnG" value="Search JISC & JISC Services sites"></li>
+					<input type="hidden" name="cx" value="010508323376124707539:cbepmmrxs7y">
+
+					  		
 		        </ul>
-        
+        		</form>          
 		        <div id='banner'>
 		        	<ul class='sponsor-logos'>
 			            <li class='jisc'></li>
