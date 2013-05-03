@@ -18,6 +18,7 @@ class project extends resource {
 	private $repo_url = "";
 	private $hidden = false;
 	private $openness_rating;
+    private $progress;
 	
 	const ROLE_ANY = 0;
 	const ROLE_USER = 1;
@@ -38,6 +39,7 @@ class project extends resource {
 		if(isset($p[0]['image'])) $this->image = $p[0]['image'];
 		$this->category = new category((int)$p[0]['category_id']);
 		$this->openness_rating = $p[0]['openness_rating'];
+		$this->progress =  $p[0]['progress'];
 		
 		$this->hidden = (BOOL) $p[0]['hidden'];
 		
@@ -61,6 +63,7 @@ class project extends resource {
 		$data['scm_url'] = $this->scm_url;
 		$data['repo_url'] = $this->repo_url;
 		$data['hidden'] = $this->hidden;
+        $data['progress'] = $this->progress;
 		if($this->license != null) {
 			$data['license'] = $this->license->getId();
 		} else {
@@ -318,7 +321,16 @@ class project extends resource {
 		return (int)$this->openness_rating;
 		
 	}
+    
+    public function getProgress(){
+        return (int)$this->progress;
+    }
 	
+    public function setProgress($progress){
+        $this->progress = $progress;
+    }
+    
+    
 	public function setIdea(idea $idea){
 		if(empty($this->id)) throw new Exception("Project must be committed to the database before setting the idea.");
 		$db = db::singleton();

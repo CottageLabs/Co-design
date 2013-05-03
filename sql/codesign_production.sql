@@ -89,6 +89,7 @@ CREATE  TABLE IF NOT EXISTS `codesign_production`.`project` (
   `repo_url` VARCHAR(200) NULL DEFAULT NULL ,
   `hidden` INT(1) NOT NULL DEFAULT '0' ,
   `openness_rating` INT(11) NULL DEFAULT '0' ,
+  `progress` TINYINT(1) NULL DEFAULT '0' ,
   PRIMARY KEY (`id`) ,
   INDEX `category_id` (`category_id` ASC) ,
   CONSTRAINT `project_ibfk_1`

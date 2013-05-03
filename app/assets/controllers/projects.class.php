@@ -128,8 +128,24 @@ class controller_projects extends controller {
 		$this->viewport()->replace("repo-url", $this->m_currentProject->getRepoUrl());
 		$this->viewport()->replace("licence", $this->m_currentProject->getLicense()->getName());
 		$this->viewport()->replace("license-url", $this->m_currentProject->getLicense()->getUrl());
+        
+        
+        $progress_val = $this->m_currentProject->getProgress();
+        //Make sure $progress_val is a reasonable value, otherwise set it to 0
+        if (!($progress_val >=0 && $progress_val<=5)) $progress_val=0;
+        //Now build progress html
+        $progress = "<ul class='progress' data-progress-steps='5'>";
+        for ($i=0; $i < $progress_val; $i++) {
+            $progress .= "<li class='progress-done'></li>";
+        }
+        
+        for ($i=$progress_val; $i < 5; $i++) {
+            $progress .= "<li class='progress-todo'></li>";
+        }
+        $progress .= "</ul>";
 		
-		
+		$this->viewport()->replace("project-progress", $progress);
+        
 		// Removed checking git hub for last updated etc as api has changed
 		//$this->checkGithub();
 		// Still need to remove placeholder
@@ -342,14 +358,14 @@ class controller_projects extends controller {
 			$this->m_currentProject = new project((int)$id);
 			
 			// Does the user have access to this incubated project?			
-			if( !$this->m_user->getEnrollment($this->m_currentProject, resource::MEMBERSHIP_ADMIN) ){
-				$this->redirect("/project/" . $id);
+			if( !$this->m_user->getIsAdmin()){
+				$this->redirect("/projects/" . $id);
 				return;			
 			}
 			
 			// Incubated projects and projects share the same idspace, so if this is a full project redirect to the project page.
 			if($this->m_currentProject->getIncubated()){
-				$this->redirect("/incubator/" . $id);
+				$this->redirect("/shortlist/" . $id);
 				return;
 			}
 			
@@ -367,7 +383,8 @@ class controller_projects extends controller {
 			$this->viewport()->replace('scm-url', $this->m_currentProject->getScmUrl());
 			$this->viewport()->replace('repo-url', $this->m_currentProject->getRepoUrl());
 			$this->viewport()->replace("chars", strlen($this->m_currentProject->getOverview()));
-			
+			$this->viewport()->replace("progress", $this->m_currentProject->getProgress());
+            
 			$this->viewport()->replace('licenses', util::getLicense($this->m_currentProject->getLicense()));
 	
 			// Openness ratings
@@ -450,6 +467,7 @@ class controller_projects extends controller {
 			$this->m_currentProject->setCommunityUrl($_POST['community']);
 			$this->m_currentProject->setScmUrl($_POST['scm']);
 			$this->m_currentProject->setRepoUrl($_POST['repo']);
+            $this->m_currentProject->setProgress($_POST['progress']);
 			
 			if((int)$_POST['licence'] != 0) $this->m_currentProject->setLicense(new license((int)$_POST['licence']));
 			
@@ -459,7 +477,7 @@ class controller_projects extends controller {
 
 			$this->m_currentProject->commit();
 			
-			$this->redirect("/project/" . $id);
+			$this->redirect("/projects/" . $id);
 		
 		} catch(Exception $e){
 			$v = new view();
