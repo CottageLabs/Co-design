@@ -65,6 +65,32 @@ $(document).ready(function(){
 			return false;
 		});
 	}
+	
+	function bindDeleteUser(){
+		$('.delete-user').bind('click', function(){
+			var cfm = confirm("Are you sure you want to delete this user? This action cannot be undone.");
+			
+			if(cfm){
+				// Get the ID.
+				var user_id = $(this).attr('name').substr("user_delete_".length);
+				var user = $(this).parentsUntil('tr').parent();
+				
+				$.post(window.location.pathname + "/delete/" + user_id, function(data){
+					if(data.status == 200){
+						// OK, deleted!
+						
+						user.fadeOut('fast', function() { $(user).remove(); } );
+					} else {
+						alert(data.message);
+					}
+					
+				}, 'json');
+			}
+			
+			return false;
+		});
+	}
+
 
 
 	
@@ -72,4 +98,5 @@ $(document).ready(function(){
 		
 	bindDelete();
   
+  	bindDeleteUser();
 });	
