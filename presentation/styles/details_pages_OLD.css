@@ -4,20 +4,22 @@
 	text-align: left;
 	font-weight:bold;
 	padding-bottom: 23px;
-	border-bottom: 1px solid #002542;
-	margin-right: 20px;
 
 }
 	
 .user-info .suggested-by {
 	font-family:Verdana, Geneva, sans-serif;
-	font-size: 12px;
+	font-size: 0.75em;
 	color: #002542;
 	margin: 25px 0	4px 0;
 }
 
+.user-info .project-icon {
+    margin-top: 25px;
+}
+
 .user-info h2 {
-	font-size:17px;
+	font-size:1.0625em;
 	color: #FF6E19;
 	margin-bottom:15px;
 }
@@ -33,21 +35,27 @@
 	margin: 25px 0 5px 0;
 	box-shadow: 0 4px 0 #96a5b1;
 }
-.project-info.orange {
-		box-shadow: 0 4px 0 #c36034;
-}
-
 
 .project-info h1 {
-	padding: 50px 10px 0 10px;
-	font-size: 24px;
+	padding: 10px 10px 0 10px;
+	font-size: 1.5em;
 	font-family: Novecentowide-Medium, Verdana, Geneva, sans-serif;
 	color: #f37c22;
 }
 
+.listed-project-title h1 {
+    padding-top: 50px;
+}
+
+.project-info h2 {
+	padding: 10px 10px 0 10px;
+	font-size: 1.2em;
+	font-family: Novecentowide-Medium, Verdana, Geneva, sans-serif;
+	color: #002542;
+}
 
 .heading h1 {
-	font-size:18px;
+	font-size:1.125em;
 	color: #002542;
 	font-family:Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
 	padding: 25px 0 5px 0;
@@ -63,7 +71,7 @@
 	border-radius: 2px;
 	color: #002542;
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 13px;
+	font-size: 0.8125em;
 	padding: 3px 10px 4px 10px;
 	margin-top: 10px;
 	display: inline-block;
@@ -88,8 +96,8 @@
 .project-info-wrapper .actions .action {
 	background: #002542;
 	box-shadow: 0 2px 0px #000;
-	font-size:14px;
-	width:22%;
+	font-size:1em;
+	width:20%;
 	float:right;
 	margin:3px;
 	padding: 6px 0 4px 0;
@@ -100,7 +108,7 @@
 .comment-box{
 	background-color:#dee4ee;
 	border-radius: 2px;
-	padding: 10px 0 10px 0;
+	padding: 10px;
 	text-align:left;
 	margin: 10px 0 20px 0;
 }
@@ -116,8 +124,8 @@
 	
 .comment-message {
 	color:#222;
-	font-size: 12px;
-	padding: 12px 0 0 0;
+	font-size: 0.8125em;
+	padding: 12px 10px 0 0;
 	display: inline-block;
 	width: 85%;
 	vertical-align: top;
@@ -132,7 +140,7 @@
 
 .comment-details {
 	color: #FF6E19;
-	font-size: 10px;
+	font-size: 0.625em;
 	font-style: italic;
 	position: absolute;
 	display:inline-block;
@@ -143,20 +151,21 @@
 
 .tile-wrapper .actions .action{	
 	margin: 0 5px 0 0;
-	font-size: 16px;
+	font-size: 1em;
 	width:auto;
 	float:right;
 }
 
 /* PROJECT IDEA COLOURS */
 .idea-project .context-links {
+	border-top: 1px #002542 solid;
 	padding: 15px 0 0 0;
 	margin:15px 25px 0 0;
 }
 
 .idea-project .context-links li a{
 	font-family: Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
-	font-size:16px;
+	font-size:1em;
 }
 .idea-project .context-links li a:hover{
 	color: #dee6f1;
@@ -190,6 +199,7 @@
 .project-in-progress .project-info {
 	background-color:#f3904c;
 	color:#002542;
+	
 }
 
 .project-in-progress .project-info h1 {
@@ -200,26 +210,13 @@ ul.progress {
     margin: 0;
     padding: 0;
     list-style-type none;
-	margin: 15px 0 15px 0;
 }
 
 ul.progress li {
     display: inline-block;
     text-align: center;
     line-height: 3em;
-	height: 23px;
-	border: 1px solid #A3BDCF;
-	border-right: 0px;
 }
-
-ul.progress li:first-of-type {
-	border-radius: 8px 0 0 8px;
-}
-
-ul.progress li:last-of-type {
-	border-radius: 0 8px 8px 0;
-}
-
 ul.progress[data-progress-steps="2"] li { width: 49%; }
 ul.progress[data-progress-steps="3"] li { width: 33%; }
 ul.progress[data-progress-steps="4"] li { width: 24%; }
@@ -227,55 +224,9 @@ ul.progress[data-progress-steps="5"] li { width: 19%;}
 
 ul.progress li.progress-done {
     color: black;
-	background: rgb(75,124,160); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(75,124,160,1) 0%, rgba(10,43,70,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(75,124,160,1)), color-stop(100%,rgba(10,43,70,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(75,124,160,1) 0%,rgba(10,43,70,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(75,124,160,1) 0%,rgba(10,43,70,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(75,124,160,1) 0%,rgba(10,43,70,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(75,124,160,1) 0%,rgba(10,43,70,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b7ca0', endColorstr='#0a2b46',GradientType=0 ); /* IE6-9 */
-	box-shadow: 1px 1px 2px #777;
-
-
+    border-bottom: 4px solid yellowgreen;
 }
 ul.progress li.progress-todo {
     color: silver; 
-	background: rgb(229,229,229); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(229,229,229,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,229,229,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */	background: -webkit-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(229,229,229,1) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(229,229,229,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-	box-shadow: 1px 1px 2px #777, inset 0px  1px 2px #888;
-
-}
-
-.context-links .more-info {
-	display: block;
-	font-family: Novecentowide-DemiBold, Verdana, Geneva, sans-serif;
-	font-weight: bold;
-	font-size: 18px;
-	line-height: 130%;
-	color: #FF6E19;
-	border-top:none;
-}
-
-a.tags {
-	font-size:12px;
-	color:#002542;
-	padding: 2px 3px 3px 3px;
-	border: 1px solid #FF6E19;
-	margin: 5px 3px 0 3px;
-	border-radius:2px;
-	display:inline-block;
-}
-
-a.tags:hover {
-	color:#bbb;
-
-}
-.actions .action:hover {
-	background-color: #034d84;
+    border-bottom: 4px solid silver;
 }
