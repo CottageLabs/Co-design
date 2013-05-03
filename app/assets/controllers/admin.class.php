@@ -15,14 +15,15 @@ class controller_admin extends controller {
 		//$this->bind("(?P<name>projects)/(?P<id>[0-9]+)/hide", "hide"); // Delete comment
 		 
 		 # These bindings should only work for Admins
-        if($this->m_user->getIsAdmin()) {   
-            $this->bindDefault('userManagement');
+        if($this->m_user->getIsAdmin()) {
+            $this->bind("save", "adminSave"); // Delete comment
+            $this->bindDefault('adminIndex');
         } else {
             $this->redirect("/home?alert=" . urlencode('Please login as an authorised user to view the Admin page'));
         }
 	}
     
-    protected function userManagement(){
+    protected function adminIndex(){
         $this->setViewport(new view("users"));
         
         $this->pageName = "- Users";
@@ -65,6 +66,42 @@ class controller_admin extends controller {
             $users_general_view->append( $template->get() );
         }
         $this->viewport()->replace("users_general", $users_general_view);
+    }
+
+
+    protected function adminSave(){
+        if($this->m_user->getIsAdmin()) {
+            $users = array();
+            $admins = array();
+            $forums = array();
+            
+            foreach ($_POST as $key => $value) {
+                
+                if (preg_match('/^user_(\d+)$/', $key, $matches)) {
+                    array_push($users, $matches[1]);
+                }
+                
+                if (preg_match('/^user_isadmin_(\d+)$/', $key, $matches)) {
+                    array_push($admins, $matches[1]);
+                }
+                
+                if (preg_match('/^user_isforum_(\d+)$/', $key, $matches)) {
+                    array_push($forums, $matches[1]);
+                }
+            }
+            
+            //print_r ($users);
+            //print_r ($admins);
+            //print_r ($forums);
+                
+           
+           
+            
+            $this->redirect("/admin");
+        } else {
+            //None-admins get redirected to home
+            $this->redirect("/home?alert=" . urlencode('Please login as an authorised user to view the Admin page'));
+        }
     }
 
 }
