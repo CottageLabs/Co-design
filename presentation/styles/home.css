@@ -17,7 +17,7 @@
 	font-family:Novecentowide-Light, Verdana, Geneva, sans-serif;
 }
 .column .more-info {
-	font-size: 0.875em;
+	font-size: 12px;
 }
 
 .column a.more-info {
@@ -47,6 +47,7 @@
 	display:inline-block;
 	padding: 10px 0 10px 0;
 }
+
 
 /* extra Cottage Labs style to ensure hyperlinks are rendered with h1 styles */
 h1 a {
