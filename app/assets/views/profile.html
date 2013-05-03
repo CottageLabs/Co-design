@@ -14,7 +14,7 @@
 
         	
         	<form action="profile/update" method="post" class="innerContent" enctype="multipart/form-data">
-        	
+                <!--	
                 <div class="text-heading">
                    <h1>Profile image</h1>
                 </div>
@@ -24,7 +24,8 @@
         			<p>Choose an image to use as your profile image. Note: it will be resized to 80x80.</p>
         			<p><input type="file" name="newImage" id="newImage" /></p>
         			</div>
-        		</p>
+                    </p>
+                -->
         		
                 <div class="text-heading">
         			<h1>Username</h1>
@@ -38,11 +39,13 @@
                 </div>
                 <p><input type="password" name="password" id="password" /></p>
         			<p>Note: This will only change your password on REALISE. This will not affect LinkedIn logins.</p>
-        		
+
+                <!--
                 <div class="text-heading">
         			<h1>Tagline</h1>
                 </div>
                 <p><input type="text" name="newTagline" id="newTagline" value="{tagline}" size="50" /></p>
+                -->
         		
                 <div class="text-heading">
         			<h1>Email</h1>
@@ -50,12 +53,13 @@
                 <p><input type="text" name="newEmail" id="newEmail" value="{email}" size="50" /></p>
         			<p><input type="checkbox" name="emailVisibility" id="emailVisibility"{emailVisibility} /><label for="emailVisibility">Allow people to contact me</label></p>
         			<p>We won't display your email publicly, but other users will be able to send you messages through REALISE.</p>
-        		
+
+                <!--
                 <div class="text-heading">
         			<h1>Bio</h1>
                 </div>
                 <p><textarea id="bio" name="bio" rows='10' cols='60'>{bio}</textarea></p>
-        		
+                -->
         		
                 <p><input type="submit" name="submit" value="Save" /></p>
             </form>
