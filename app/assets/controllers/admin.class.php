@@ -70,6 +70,7 @@ class controller_admin extends controller {
 
 
     protected function adminSave(){
+        //Only admins can use this page
         if($this->m_user->getIsAdmin()) {
             $users = array();
             $admins = array();
@@ -90,12 +91,16 @@ class controller_admin extends controller {
                 }
             }
             
-            //print_r ($users);
-            //print_r ($admins);
-            //print_r ($forums);
+            foreach($users as $user_id){
+                $is_admin = in_array($user_id, $admins);
+                $is_forum = in_array($user_id, $forums);
                 
-           
-           
+                $user = new user($user_id, user::ID_LOCAL);
+                $user->setIsAdmin($is_admin);
+                $user->setIsForum($is_forum);
+                
+                $user->commit();
+            }
             
             $this->redirect("/admin");
         } else {
