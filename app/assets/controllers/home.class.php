@@ -18,7 +18,6 @@ class controller_home extends controller {
 		// Set the default request handler
 		
 		// Stray pages
-		$this->bind('sitemap', 'sitemapPage');
 		$this->bind('accessibility', 'accessibility');
 		$this->bind('legal', 'legal');
 		$this->bind('contact', 'contactPage');
@@ -180,12 +179,6 @@ class controller_home extends controller {
 			
 			$this->setViewport($error->append($this->viewport()));
 		}	
-	}
-	
-	protected function sitemapPage(){
-		$this->setupPage();
-		
-		$this->setViewport(new view('sitemap'));
 	}
 	
 	protected function accessibility(){
