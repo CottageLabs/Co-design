@@ -43,6 +43,10 @@
 	color: #f37c22;
 }
 
+.listed-project-title h1 {
+    padding-top: 50px;
+}
+
 .project-info h2 {
 	padding: 10px 10px 0 10px;
 	font-size: 1.2em;

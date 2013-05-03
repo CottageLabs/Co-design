@@ -273,6 +273,15 @@ class controller_ideas extends controller {
 		
 		$this->superview()->replace("additional-assets", $assets);
 
+	    $lp = new view('frag.listed-project');
+        if ($this->m_currentIdea->getProjectCount() > 0) {
+            $this->viewport()->replace("listed-project", $lp);
+            $this->viewport()->replace("listed-project-title-style", 'listed-project-title');
+            
+        } else {
+            $this->viewport()->replace("listed-project", '');
+            $this->viewport()->replace("listed-project-title-style", '');
+        }
 	}
 	
 	protected function comment($args){
